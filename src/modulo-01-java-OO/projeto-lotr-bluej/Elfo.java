@@ -20,6 +20,7 @@ public class Elfo {
     
     // Diminuir 10 da vida do Dwarf a cada flecha.
     public void atirarFlechaDwarf(Dwarf dwarf) {
+        experiencia++;
         numFlechas--;
         dwarf.levarDano();
     }
