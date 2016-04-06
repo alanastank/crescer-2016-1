@@ -23,10 +23,10 @@ public class Elfo
     }
     
     // Diminuir 10 da vida do Dwarf a cada flecha.
-    public void atirarFlechaAnao(Anao nomeAnao)
+    public void atirarFlechaDwarf(Dwarf dwarf)
     {
         numFlechas--;
-        nomeAnao.levarDano();
+        dwarf.levarDano();
     }
     
     public void atirarFlechaRefactory()
