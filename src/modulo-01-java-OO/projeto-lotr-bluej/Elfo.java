@@ -1,14 +1,11 @@
-public class Elfo
-{
-   
+public class Elfo {   
     // Variáveis de instância
     private String nome;
     private int experiencia;
     private int numFlechas;
         
     // Construtor para objetos da classe Elfo
-    public Elfo(String nome)
-    {
+    public Elfo(String nome) {
         // Inicializa variáveis de instância
         this.nome = nome;
         experiencia = 0;
@@ -16,21 +13,18 @@ public class Elfo
     }
 
     // Aumentar experiência e diminuir flecha a cada chamada de atirarFlecha().
-    public void atirarFlecha()
-    {
+    public void atirarFlecha() {
         experiencia++; 
         numFlechas--;
     }
     
     // Diminuir 10 da vida do Dwarf a cada flecha.
-    public void atirarFlechaDwarf(Dwarf dwarf)
-    {
+    public void atirarFlechaDwarf(Dwarf dwarf) {
         numFlechas--;
         dwarf.levarDano();
     }
     
-    public void atirarFlechaRefactory()
-    {   
+    public void atirarFlechaRefactory() {   
         numFlechas--;
         experiencia++;
     }

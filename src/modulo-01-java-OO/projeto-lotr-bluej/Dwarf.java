@@ -1,14 +1,12 @@
-public class Dwarf 
-{
+public class Dwarf {
     public int vida;
         
-    public Dwarf ()
-    {
+    public Dwarf() {
         vida = 110;
     }
     
-      public void levarDano() {
+    public void levarDano() {
         this.vida -= 10;
-  }
+    }
   
 }
