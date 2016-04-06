@@ -1,8 +1,22 @@
 public class Dwarf {
-    public int vida;
+    private int vida;
+    private String nome;
+ 
+    public void setNome(String novoNome){ // usar somente quando for necessário alterar algo
+    nome = novoNome;
+    }
+    
+    public String getNome(){
+    return nome;
+    }
+    
+    public int getVida(){
+    return vida;
+    }
         
-    public Dwarf() {
-        vida = 110;
+    public Dwarf(String nome) {
+        this.vida = 110;
+        this.nome = nome;
     }
     
     public void levarDano() {
