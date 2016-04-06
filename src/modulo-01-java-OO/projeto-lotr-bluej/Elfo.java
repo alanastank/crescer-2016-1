@@ -12,7 +12,7 @@ public class Elfo {
         numFlechas = 42;
     }
 
-    // Aumentar experiência e diminuir flecha a cada chamada de atirarFlecha().
+    // Aumentar experiência e diminuir número de flechas a cada chamada de atirarFlecha().
     public void atirarFlecha() {
         experiencia++; 
         numFlechas--;
