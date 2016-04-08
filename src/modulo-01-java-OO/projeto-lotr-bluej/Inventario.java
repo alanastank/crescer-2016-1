@@ -7,7 +7,7 @@ public class Inventario {
     public Inventario() {
     }
     
-    public ArrayList getListaItens(){
+    public ArrayList<Item> getListaItens(){
         return listaItens;
     }
     
