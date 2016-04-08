@@ -19,10 +19,8 @@ public class Dwarf {
     // Sobrecarga de construtor
     
     public Dwarf(String nome, DataTerceiraEra dataNascimento) { 
-        this.vida = 110;
-        this.nome = nome;
+        this(nome);
         this.dataNascimento = dataNascimento; 
-        this.experiencia = 0;
     }
  
     // Getters and setters
@@ -84,6 +82,18 @@ public class Dwarf {
        }
     }
     
+    public void tentarSorte(){
+        int novaQuantidade;
+        if(getNumeroSorte() == -3333.0){
+            for(int i=0; i < inventarioDwarf.getListaItens().size(); i++){
+                novaQuantidade = inventarioDwarf.getListaItens().get(i).getQuantidade();
+                novaQuantidade += 1000;
+                inventarioDwarf.getListaItens().get(i).setQuantidade(novaQuantidade);
+
+            }
+        }
+    }
+       
      public void adicionarItem(Item item){
         this.inventarioDwarf.adicionarItem(item);
     }

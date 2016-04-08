@@ -207,5 +207,22 @@ public class DwarfTest {
         assertEquals(vidaEsperada, dwarf.getVida()); 
         assertEquals(experienciaEsperada, dwarf.getExperiencia()); 
     }
+    
+    @Test
+    public void testarSorteDeDwarfQueNasceuEmAnoBissextoETemVidaEntre80E90(){
+        DataTerceiraEra data = new DataTerceiraEra(22,02,2012);
+        Dwarf dwarf = new Dwarf("Atchim", data);
+        Item item = new Item(2, "capacete");
+        dwarf.adicionarItem(item);
+        int quantidadeEsperada = 1002;
+        
+         // Act
+        dwarf.levarDano();
+        dwarf.levarDano();
+        dwarf.levarDano();
+        dwarf.tentarSorte();       
+        // Assert
+        assertEquals(quantidadeEsperada, dwarf.getInventario().getListaItens().get(0).getQuantidade()); 
+    }
 }
 
