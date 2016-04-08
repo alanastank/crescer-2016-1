@@ -112,6 +112,18 @@ public class DwarfTest {
         assertTrue(dwarf.getInventario().getListaItens().contains(item));
     }
     
+    @Test 
+    public void removeItemNoInventarioEInventarioEstaVazio(){
+        // Arrange 
+        Dwarf dwarf = new Dwarf("Balin");
+        Item item = new Item(6, "pão");
+        // Act
+        dwarf.adicionarItem(item);
+        dwarf.perderItem(item);
+        // Assert
+        assertFalse(dwarf.getInventario().getListaItens().contains(item));
+    }
+    
     @Test
     public void DwarfNasceComNumeroDaSorte101(){
          Dwarf dwarf = new Dwarf("Balin");
@@ -168,6 +180,32 @@ public class DwarfTest {
         double numeroEsperado = ((101*33) % 100);       
         // Assert
         assertEquals(numeroEsperado, dwarf.getNumeroSorte(), 0.1); 
+    }
+    
+    @Test
+    public void criarDwarfComNumeroDaSorteMenorQue0(){
+        // Arrange 
+        DataTerceiraEra data = new DataTerceiraEra(22,02,2000);
+        Dwarf dwarf = new Dwarf("Atchim", data);
+        int experienciaEsperada = 2;
+        // Act
+        dwarf.levarDano(); 
+        dwarf.levarDano(); 
+        dwarf.levarDano();
+        // Assert
+        assertEquals(experienciaEsperada, dwarf.getExperiencia()); 
+    }
+    
+    @Test
+    public void criarDwarfComNumeroDaSorteEntre0E100(){
+        // Arrange 
+        DataTerceiraEra data = new DataTerceiraEra(22,02,2011);
+        Dwarf dwarf = new Dwarf("Meireles", data);
+        int vidaEsperada = 110; 
+        int experienciaEsperada = 0;
+        // Assert
+        assertEquals(vidaEsperada, dwarf.getVida()); 
+        assertEquals(experienciaEsperada, dwarf.getExperiencia()); 
     }
 }
 
