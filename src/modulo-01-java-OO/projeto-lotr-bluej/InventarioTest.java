@@ -98,4 +98,61 @@ public class InventarioTest {
         // Assert
         assertEquals(8, inventario.getItemComMaiorQuantidade().getQuantidade());
     }
+        
+    @Test
+    public void ordenaItensDeUmaListaCom4Itens(){
+        // Arrange
+        Inventario inventario = new Inventario();
+        Item item = new Item(2, "cantil");
+        Item item2 = new Item(5, "moedas de ouro");
+        Item item3 = new Item(8, "martelo");
+        Item item4 = new Item(1, "poção");
+        Inventario inventarioEsperado = new Inventario();
+        // Act
+        inventario.adicionarItem(item);
+        inventario.adicionarItem(item2);
+        inventario.adicionarItem(item3);
+        inventario.adicionarItem(item4);
+        inventario.ordenarItens();
+        inventarioEsperado.adicionarItem(item4);
+        inventarioEsperado.adicionarItem(item);
+        inventarioEsperado.adicionarItem(item2);
+        inventarioEsperado.adicionarItem(item3);
+        
+        // Assert
+        assertEquals(inventarioEsperado.getListaItens().toString(), inventario.getListaItens().toString());
+    }
+    
+    @Test
+    public void ordenaItensDeUmaListaCom2Itens(){
+        // Arrange
+        Inventario inventario = new Inventario();
+        Item item = new Item(8, "cantil");
+        Item item2 = new Item(5, "moedas de ouro");
+        Inventario inventarioEsperado = new Inventario();
+        // Act
+        inventario.adicionarItem(item);
+        inventario.adicionarItem(item2);
+        inventario.ordenarItens();
+        inventarioEsperado.adicionarItem(item2);
+        inventarioEsperado.adicionarItem(item);
+        
+        // Assert
+        assertEquals(inventarioEsperado.getListaItens().toString(), inventario.getListaItens().toString());
+    }
+
+    @Test
+    public void ordenaItensDeUmaListaCom1Item(){
+        // Arrange
+        Inventario inventario = new Inventario();
+        Item item = new Item(8, "cantil");
+        Inventario inventarioEsperado = new Inventario();
+        // Act
+        inventario.adicionarItem(item);
+        inventario.ordenarItens();
+        inventarioEsperado.adicionarItem(item);
+        
+        // Assert
+        assertEquals(inventarioEsperado.getListaItens().toString(), inventario.getListaItens().toString());
+    }
 }

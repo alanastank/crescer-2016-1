@@ -43,8 +43,18 @@ public class Inventario {
         }
         return itemMaiorQuantidade;
     }
-    
-    public void ordenarItens(){
-    
+       
+    // Odena um arrayList comparando posições de dois a dois. Caso a quantidade de uma posição n seja maior que a de n+1, os itens trocam de lugar e assim sucessivamente.  
+    public void ordenarItens(){ 
+        Item auxiliaTroca;
+        for(int i=0; i < listaItens.size(); i++){
+            for(int j = 0; j < listaItens.size() - 1; j++){ 
+                if(listaItens.get(j).getQuantidade() > listaItens.get(j + 1).getQuantidade()){
+                    auxiliaTroca = listaItens.get(j); // associa o primeiro item a variavel auxiliar
+                    listaItens.set(j, listaItens.get(j + 1)); // associa o segundo item a primeira posição
+                    listaItens.set(j + 1, auxiliaTroca); // associa o primeiro item (auxiliaTroca) a segunda posição
+                } 
+            }        
+        }
     }
 }
