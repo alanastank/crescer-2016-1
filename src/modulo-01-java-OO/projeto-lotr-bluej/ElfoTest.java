@@ -7,24 +7,35 @@ public class ElfoTest
 {
     
    @Test
-   public void testaCriarElfo() {
+   public void testaSeElfoNasceCom42FlechasEVida100() {
+       // Arrange
        Elfo elfo = new Elfo("legolas");
-       int numFlechasEsperada = 42;
-       int numFlechas = elfo.getNumFlechas();
-       assertEquals(numFlechasEsperada, numFlechas);  
+       // Assert
+       assertEquals(42, elfo.getNumFlechas());
+       assertEquals(100, elfo.getVida());  
     }
     
    @Test
    public void testaAtirarFlechas() {
+       // Arrange
        Elfo elfo = new Elfo("legolas");
        int experienciaEsperadaAposAtirar = elfo.getExperiencia() + 1;
-       elfo.atirarFlecha();
-       int experienciaAposAtirar = elfo.getExperiencia();
        int numFlechasEsperadaAposAtirar = elfo.getNumFlechas() - 1;
+       // Act
        elfo.atirarFlecha();
-       int numFlechasAposAtirar = elfo.getNumFlechas();
-       assertEquals(experienciaEsperadaAposAtirar, experienciaAposAtirar); 
-       assertEquals(numFlechasEsperadaAposAtirar, numFlechasAposAtirar);  
+       // Assert
+       assertEquals(experienciaEsperadaAposAtirar, elfo.getExperiencia()); 
+       assertEquals(numFlechasEsperadaAposAtirar, elfo.getNumFlechas());  
     }
+    
+   @Test
+    public void testarSeElfoNasceVivo() {
+        // Arrange
+        Elfo elfo = new Elfo("Balin");
+        Elfo elfoVerde = new ElfoVerde("legolas");
+        // Assert
+        assertEquals(Status.VIVO, elfo.getStatus());
+        assertEquals(Status.VIVO, elfoVerde.getStatus());
+    } 
     
 }
