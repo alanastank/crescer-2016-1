@@ -1,5 +1,5 @@
 public class Elfo extends Personagem {   
-    private int numFlechas;
+    protected int numFlechas;
     
     public Elfo(String nome) {
         super(nome);
@@ -13,7 +13,7 @@ public class Elfo extends Personagem {
     // Aumentar experiência e diminuir número de flechas a cada chamada de atirarFlecha().
     public void atirarFlecha() {
         experiencia++; 
-        this.numFlechas--;
+        numFlechas--;
     }
     
     public String toString() {  
