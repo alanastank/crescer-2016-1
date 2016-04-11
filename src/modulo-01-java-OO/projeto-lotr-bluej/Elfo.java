@@ -3,8 +3,9 @@ public class Elfo {
     private String nome;
     private int experiencia;
     private int numFlechas;
+    protected Inventario inventarioElfo;
     
-     // Construtor para objetos da classe Elfo
+    // Construtor para objetos da classe Elfo
     public Elfo(String nome) {
         // Inicializa variáveis de instância
         this.nome = nome;
@@ -14,12 +15,16 @@ public class Elfo {
     
     public int getExperiencia() {
         return experiencia;
-   }
+    }
    
      public int getNumFlechas() {
         return numFlechas;
-   }
+    }
 
+    public Inventario getInventario(){
+        return inventarioElfo;
+    }
+    
     // Aumentar experiência e diminuir número de flechas a cada chamada de atirarFlecha().
     public void atirarFlecha() {
         experiencia++; 
@@ -35,6 +40,14 @@ public class Elfo {
         experiencia++;
         numFlechas--;
         dwarf.levarDano();
+    }
+    
+    public void adicionarItemInventario(Item item){
+        this.inventarioElfo.adicionarItem(item);
+    }
+    
+    public void perderItemInventario(Item item){
+        this.inventarioElfo.removerItem(item);
     }
     
     public void atirarFlechaRefactory() {   
