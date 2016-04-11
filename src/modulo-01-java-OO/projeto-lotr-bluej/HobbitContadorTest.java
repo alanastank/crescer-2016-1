@@ -64,4 +64,32 @@ public class HobbitContadorTest {
         HobbitContador contador = new HobbitContador();
         assertEquals(99, contador.obterMaiorMultiploDeTresAte(100));
     }
+    
+    @Test
+    public void testarMultiplosDeTresAte10(){
+        HobbitContador contador = new HobbitContador();
+        ArrayList<Integer> esperado = new ArrayList<>();
+        esperado.add(0);
+        esperado.add(3);
+        esperado.add(6);
+        esperado.add(9);
+        assertEquals(esperado.toString(), contador.obterMultiplosDeTresAte(10).toString());
+    }
+    
+    @Test
+    public void testarMultiplosDeTresAte0(){
+        HobbitContador contador = new HobbitContador();
+        ArrayList<Integer> esperado = new ArrayList<>();
+        esperado.add(0);
+        assertEquals(esperado.toString(), contador.obterMultiplosDeTresAte(0).toString());
+    }
+    
+    @Test
+    public void testarMultiplosDeTresAte3(){
+        HobbitContador contador = new HobbitContador();
+        ArrayList<Integer> esperado = new ArrayList<>();
+        esperado.add(0);
+        esperado.add(3);
+        assertEquals(esperado.toString(), contador.obterMultiplosDeTresAte(3).toString());
+    }
 }

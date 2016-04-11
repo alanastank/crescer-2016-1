@@ -33,12 +33,24 @@ public class HobbitContador {
     de i na variável maiorMultiploDeTres. Como não existe mais nenhum comando dentro do if após a atribuição da variável, o continue é desnecessário e por isso foi apagado. */
     
     public int obterMaiorMultiploDeTresAte(int numero) {
-      int maiorMultiploDeTres = 0;  
-      for (int i = 1; i <= numero; i++) {
-          if (i % 3 == 0) {
-              maiorMultiploDeTres = i;
-          }
-      }
-      return maiorMultiploDeTres;
+        int maiorMultiploDeTres = 0;  
+        for (int i = 1; i <= numero; i++) {
+            if (i % 3 == 0) {
+                maiorMultiploDeTres = i;
+            }
+        }
+        return maiorMultiploDeTres;
+    }
+    
+    /* A variável limite, que não chegou nem a ser declarada no código original, é desnecessária visto que o limite da repetição é o próprio valor passado como parâmetro 
+    do método. Break deve ser retirado, caso contrário o loop irá parar toda vez que encontrar um multiplo de 3, e não adicionará o i ao arrayList. */
+    public ArrayList<Integer> obterMultiplosDeTresAte(int numero) {
+        ArrayList<Integer> multiplos = new ArrayList<>(Arrays.asList(0));
+        for (int i = 1; i <= numero; i++) {
+            if (i % 3 == 0){
+                multiplos.add(i);
+            }
+        }
+        return multiplos;
     }
 }
