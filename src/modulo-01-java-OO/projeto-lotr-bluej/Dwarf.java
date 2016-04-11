@@ -1,19 +1,14 @@
 import java.util.ArrayList;
 
-public class Dwarf {
+public class Dwarf extends Personagem {
     private int vida;
-    private String nome;
     private Status status = Status.VIVO;
     private DataTerceiraEra dataNascimento;
-    protected Inventario inventarioDwarf;
-    private int experiencia;
        
     public Dwarf(String nome) {
+        super(nome);
         this.vida = 110;
-        this.nome = nome;
         this.dataNascimento = new DataTerceiraEra(1,1,1); // valor padrão de data para um dwarf que não recebe data como parâmetro
-        this.inventarioDwarf = new Inventario(); 
-        this.experiencia = 0;
     }
     
     // Sobrecarga de construtor
@@ -24,15 +19,7 @@ public class Dwarf {
     }
  
     // Getters and setters
-    
-    public void setNome(String novoNome){ // usar somente quando for necessário alterar algo
-        nome = novoNome;
-    }
-    
-    public String getNome(){
-        return nome;
-    }
-    
+   
     public int getVida(){
         return vida;
     }
@@ -43,14 +30,6 @@ public class Dwarf {
     
     public DataTerceiraEra getDataNascimento(){
         return dataNascimento;
-    }
-    
-    public Inventario getInventario(){
-        return inventarioDwarf;
-    }
-    
-    public int getExperiencia(){
-        return experiencia;
     }
     
     // Métodos
@@ -85,21 +64,12 @@ public class Dwarf {
     public void tentarSorte(){
         int novaQuantidade;
         if(getNumeroSorte() == -3333.0){
-            for(int i=0; i < inventarioDwarf.getListaItens().size(); i++){
-                novaQuantidade = inventarioDwarf.getListaItens().get(i).getQuantidade();
+            for(int i=0; i < inventario.getListaItens().size(); i++){
+                novaQuantidade = inventario.getListaItens().get(i).getQuantidade();
                 novaQuantidade += 1000;
-                inventarioDwarf.getListaItens().get(i).setQuantidade(novaQuantidade);
+                inventario.getListaItens().get(i).setQuantidade(novaQuantidade);
 
             }
         }
-    }
-       
-     public void adicionarItem(Item item){
-        this.inventarioDwarf.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item){
-        this.inventarioDwarf.removerItem(item);
-    }
-        
+    }        
 }
