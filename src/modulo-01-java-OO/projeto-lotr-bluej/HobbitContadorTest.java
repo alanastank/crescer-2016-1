@@ -34,4 +34,11 @@ public class HobbitContadorTest {
         assertEquals(210,contador.calcularDiferenca(arrayDePares));
     }
     
+    @Test
+    public void calcularDiferencaComArrayListVazio() {
+        HobbitContador contador = new HobbitContador();
+        ArrayList<ArrayList<Integer>> arrayDePares = new ArrayList<>();
+        assertEquals(0,contador.calcularDiferenca(arrayDePares));
+    }
+    
 }
