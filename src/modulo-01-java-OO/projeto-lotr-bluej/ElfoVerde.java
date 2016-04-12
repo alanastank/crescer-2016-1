@@ -5,9 +5,8 @@ public class ElfoVerde extends Elfo {
     }
             
     public void atirarFlecha(Dwarf dwarf) {
-        experiencia += 2; 
-        numFlechas--;
-        dwarf.levarDano();
+        super.atirarFlecha(dwarf);
+        experiencia++;
     }
     
     public void adicionarItem(Item item){

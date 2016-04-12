@@ -1,7 +1,7 @@
 public class Elfo extends Personagem {   
     protected int numFlechas;
     protected Status status = Status.VIVO;
-    protected double vida;
+    protected int vida;
     
     public Elfo(String nome) {
         super(nome);
@@ -17,7 +17,7 @@ public class Elfo extends Personagem {
         return status;
     }
     
-     public double getVida() {
+     public int getVida() {
         return vida;
     }
            
