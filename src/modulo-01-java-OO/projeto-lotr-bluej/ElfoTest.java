@@ -12,7 +12,7 @@ public class ElfoTest
        Elfo elfo = new Elfo("legolas");
        // Assert
        assertEquals(42, elfo.getNumFlechas());
-       assertEquals(100, elfo.getVida());  
+       assertEquals(100, elfo.getVida(), 0.1);  
     }
     
    @Test

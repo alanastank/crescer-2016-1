@@ -6,20 +6,19 @@ public class ElfoNoturno extends Elfo {
     
     /* Exercicio 7.1:
     public void atirarFlecha(Dwarf dwarf) {
-        experiencia += 3; 
-        numFlechas--;
-        vida -= vida * 0.05;
-        dwarf.levarDano();
+        super.atirarFlecha(dwarf);
+        this.experiencia+=2;
+        this.vida -= this.vida * 0.05;
     } 
     
-    Exercício 7.2: Da forma que está o exercício 7.1, o ElfoNoturno nunca irá morrer, uma vez que ele subtrai 5% da vida atual e não da vida total, 
-    o que fará que a vida nunca chegue em 0. */
+    Exercício 7.2:  Como a vida do Elfo é ponto flutuante (double) as divisões não são exatas, e embora elas tendam a 0 elas nunca chegarão a zero, ficando cada vez mais próximo, 
+    mas sempre com restos de divisão. Por isto, para matar o elfo precisamos considerar apenas a parte inteira do número (convertendo para int) OU quando o número for MENOR que 1. */
     
     public void atirarFlecha(Dwarf dwarf) {
         super.atirarFlecha(dwarf);
-        experiencia+=2;
-        vida -= 5;
-        if(vida <= 0) {
+        this.experiencia+=2;
+        this.vida -= this.vida * 0.05;
+        if(this.vida < 1) {
             status = Status.MORTO;
             vida = 0; // se a vida for negativa, modifica pra 0
         }
