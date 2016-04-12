@@ -12,17 +12,18 @@ public class ElfoTest
        Elfo elfo = new Elfo("legolas");
        // Assert
        assertEquals(42, elfo.getNumFlechas());
-       assertEquals(100, elfo.getVida());  
+       assertEquals(100, elfo.getVida(), 01);  
     }
     
    @Test
    public void testaAtirarFlechas() {
        // Arrange
        Elfo elfo = new Elfo("legolas");
+       Dwarf dwarf = new Dwarf("Dwarf");
        int experienciaEsperadaAposAtirar = elfo.getExperiencia() + 1;
        int numFlechasEsperadaAposAtirar = elfo.getNumFlechas() - 1;
        // Act
-       elfo.atirarFlecha();
+       elfo.atirarFlecha(dwarf);
        // Assert
        assertEquals(experienciaEsperadaAposAtirar, elfo.getExperiencia()); 
        assertEquals(numFlechasEsperadaAposAtirar, elfo.getNumFlechas());  

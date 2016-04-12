@@ -1,7 +1,7 @@
 public class Elfo extends Personagem {   
     protected int numFlechas;
     protected Status status = Status.VIVO;
-    protected int vida;
+    protected double vida;
     
     public Elfo(String nome) {
         super(nome);
@@ -17,29 +17,17 @@ public class Elfo extends Personagem {
         return status;
     }
     
-     public int getVida() {
+     public double getVida() {
         return vida;
     }
-       
-    // Aumentar experiência e diminuir número de flechas a cada chamada de atirarFlecha().
-    public void atirarFlecha() {
-        experiencia++; 
-        numFlechas--;
-    }
-    
+           
     public String toString() {  
         return nome + " possui " + numFlechas + " flechas e " + experiencia + " níveis de experiência";  
     }  
     
-    // Diminuir 10 da vida do Dwarf a cada flecha.
-    public void atirarFlechaDwarf(Dwarf dwarf) {
+    public void atirarFlecha(Dwarf dwarf) {
         experiencia++;
         numFlechas--;
         dwarf.levarDano();
-    }
-    
-    public void atirarFlechaRefactory() {   
-        numFlechas--;
-        experiencia++;
     }
 }

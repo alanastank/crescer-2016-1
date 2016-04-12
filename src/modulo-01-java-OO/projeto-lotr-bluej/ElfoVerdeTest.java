@@ -14,9 +14,10 @@ public class ElfoVerdeTest {
   @Test
   public void testaAtirarFlechas() {
       Elfo elfoVerde = new ElfoVerde("legolas");
+      Dwarf dwarf = new Dwarf("Dwarf");
       int experienciaEsperadaAposAtirar = elfoVerde.getExperiencia() + 2;
       int numFlechasEsperadaAposAtirar = elfoVerde.getNumFlechas() - 1;
-      elfoVerde.atirarFlecha();
+      elfoVerde.atirarFlecha(dwarf);
       assertEquals(experienciaEsperadaAposAtirar, elfoVerde.getExperiencia()); 
       assertEquals(numFlechasEsperadaAposAtirar, elfoVerde.getNumFlechas());  
   }    

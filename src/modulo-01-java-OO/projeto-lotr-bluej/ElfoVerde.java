@@ -3,10 +3,11 @@ public class ElfoVerde extends Elfo {
     public ElfoVerde(String nome) {
         super(nome);
     }
-    
-     public void atirarFlecha() {
+            
+    public void atirarFlecha(Dwarf dwarf) {
         experiencia += 2; 
         numFlechas--;
+        dwarf.levarDano();
     }
     
     public void adicionarItem(Item item){
