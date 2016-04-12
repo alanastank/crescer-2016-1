@@ -224,5 +224,30 @@ public class DwarfTest {
         // Assert
         assertEquals(quantidadeEsperada, dwarf.getInventario().getListaItens().get(0).getQuantidade()); 
     }
+    
+    @Test
+    public void descobrirMenosVidaComDoisIguais() {
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        assertEquals(d2, Dwarf.descobrirMenosVida(d1, d2));
+    }
+    
+    @Test
+    public void descobrirMenosVidaComOPrimeiroMenor() {
+        Dwarf menor = new Dwarf("D1");
+        Dwarf maior = new Dwarf("D2");
+        menor.levarDano();
+        assertEquals(menor, Dwarf.descobrirMenosVida(menor, maior));
+    }
+    
+    @Test
+    public void descobrirMenosVidaComOPrimeiroMaior() {
+        Dwarf maior = new Dwarf("D1");
+        Dwarf menor = new Dwarf("D2");
+        menor.levarDano();
+        assertEquals(menor, Dwarf.descobrirMenosVida(maior, menor));
+    }
+    
+    
 }
 

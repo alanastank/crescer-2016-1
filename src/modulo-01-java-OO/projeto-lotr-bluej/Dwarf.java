@@ -68,8 +68,11 @@ public class Dwarf extends Personagem {
                 novaQuantidade = inventario.getListaItens().get(i).getQuantidade();
                 novaQuantidade += 1000;
                 inventario.getListaItens().get(i).setQuantidade(novaQuantidade);
-
             }
         }
     }        
+    
+    public static Dwarf descobrirMenosVida(Dwarf dwarf1, Dwarf dwarf2){
+        return dwarf1.getVida() < dwarf2.getVida() ? dwarf1 : dwarf2;
+    }
 }
