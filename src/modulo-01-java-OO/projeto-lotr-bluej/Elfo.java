@@ -2,11 +2,13 @@ public class Elfo extends Personagem {
     protected int numFlechas;
     protected Status status = Status.VIVO;
     protected double vida;
+    protected static int contador;
     
     public Elfo(String nome) {
         super(nome);
         numFlechas = 42;
         vida = 100;
+        this.contador++;
     }
    
      public int getNumFlechas() {
@@ -17,10 +19,10 @@ public class Elfo extends Personagem {
         return status;
     }
     
-     public double getVida() {
+    public double getVida() {
         return vida;
     }
-           
+    
     public String toString() {  
         return nome + " possui " + numFlechas + " flechas e " + experiencia + " níveis de experiência";  
     }  
