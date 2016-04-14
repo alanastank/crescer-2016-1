@@ -4,6 +4,10 @@ public class ElfoNoturno extends Elfo {
         super(nome);
     }
     
+    public ElfoNoturno(String nome, int flechas) {
+        super(nome, flechas);
+    }
+    
     /* Exercicio 7.1:
     public void atirarFlecha(Dwarf dwarf) {
         super.atirarFlecha(dwarf);

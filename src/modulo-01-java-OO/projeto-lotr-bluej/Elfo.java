@@ -10,6 +10,13 @@ public class Elfo extends Personagem {
         vida = 100;
         this.contador++;
     }
+    
+     public Elfo(String nome, int flechas) {
+        super(nome);
+        numFlechas = flechas;
+        vida = 100;
+        this.contador++;
+    }
    
      public int getNumFlechas() {
         return numFlechas;
