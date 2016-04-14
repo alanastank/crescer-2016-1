@@ -39,4 +39,8 @@ public class Elfo extends Personagem {
         numFlechas--;
         dwarf.levarDano();
     }
+    
+    public void tentarSorte(){
+        System.out.println("Elfo tentou a sorte");
+    }
 }

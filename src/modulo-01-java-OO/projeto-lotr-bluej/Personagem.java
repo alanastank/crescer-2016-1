@@ -21,6 +21,8 @@ public abstract class Personagem {
         return inventario;
     }
     
+    public abstract void tentarSorte();
+    
      public void adicionarItem(Item item){
         this.inventario.adicionarItem(item);
     }
