@@ -22,16 +22,13 @@ public class ExercitoDeElfos {
     }
     
     public Elfo buscarElfo(String nome){
-        if(exercitoDeElfos.containsKey(nome)){
-            elfo = exercitoDeElfos.get(nome);
-        }
-        return elfo;
+            return exercitoDeElfos.get(nome);
     }
     
     public void agruparPorStatus(){
         elfosMortos = new ArrayList();
         elfosVivos = new ArrayList();
-        for (Map.Entry<String, Elfo> chaveValor : exercitoDeElfos.entrySet()){
+        for (Map.Entry<String, Elfo> chaveValor : exercitoDeElfos.entrySet()){ //percorre cada par
           if(chaveValor.getValue().getStatus() == Status.VIVO) {
               elfosVivos.add(chaveValor.getValue());
           } else {

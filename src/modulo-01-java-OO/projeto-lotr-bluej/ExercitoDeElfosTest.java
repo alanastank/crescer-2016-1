@@ -113,7 +113,8 @@ public class ExercitoDeElfosTest {
         exercito.alistarElfo(elfo1);
         exercito.alistarElfo(elfo2);
         // Assert
-        assertEquals(elfo2, exercito.buscarElfo("Alasse"));
+        assertFalse(exercito.getExercitoDeElfos().containsValue(elfo1));
+        assertTrue(exercito.getExercitoDeElfos().containsValue(elfo2));
     }
     
     @Test
@@ -133,11 +134,11 @@ public class ExercitoDeElfosTest {
        exercito.alistarElfo(elfo5);
        exercito.agruparPorStatus();
        // Assert
-       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo1));
-       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo2));
-       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo3));
-       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo4));
-       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo5));
+       assertEquals(true, exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo1));
+       assertEquals(true, exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo2));
+       assertEquals(true, exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo3));
+       assertEquals(true, exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo4));
+       assertEquals(true, exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo5));
     }    
     
      @Test
