@@ -2,8 +2,37 @@ import java.util.*;
 
 public class DicionarioSindarin {
    public static void main(String[] args){
-       rodarExemplosHashMap();
+       Scanner scanner = new Scanner(System.in);
+       System.out.println("Bem vindo ao tradutor Sindarin! Escolha a linguagem:");
+       System.out.println("[P]ortuguês [I]nglês");
+       String idioma = scanner.nextLine();
+       System.out.println("Escolha uma palavra para traduzir");
+       String palavraTraduzir = scanner.nextLine();
+       TradutorSindarin tradutor = null;
+       switch (idioma.toLowerCase()){ // avaliar o valor de uma variavel
+           case "i": //caso o valor dela for i, será inglês
+                tradutor = new SindarinParaIngles();
+                break; //quebra a condição
+           default: //se não for, será português
+                tradutor = new SindarinParaPortugues();
+                break;//quebra a condição
+        }
+       System.out.println(palavraTraduzir + " em " + idioma + " significa " + tradutor.traduzir(palavraTraduzir));
+       //rodarExemplosHashMap();
    }    
+   
+   private static TradutorSindarin criarTradutor(String idioma){
+       TradutorSindarin tradutor = null;
+       switch (idioma.toLowerCase()){ // avaliar o valor de uma variavel
+           case "i": //caso o valor dela for i, será inglês
+                tradutor = new SindarinParaIngles();
+                break; //quebra a condição
+           default: //se não for, será português
+                tradutor = new SindarinParaPortugues();
+                break;//quebra a condição
+        }
+       return tradutor;
+    }
        
    private static void rodarExemplosHashMap(){
         HashMap<String, String> dicionarioSindarin = new HashMap<>();
