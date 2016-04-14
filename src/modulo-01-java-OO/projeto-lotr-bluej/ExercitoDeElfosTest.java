@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
+import java.util.ArrayList;
 
 public class ExercitoDeElfosTest {
 
@@ -95,6 +96,14 @@ public class ExercitoDeElfosTest {
     }
     
     @Test
+    public void seBuscaPorNullEEhNull(){
+        // Arrange
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        // Assert
+        assertEquals(null, exercito.buscarElfo(null));
+    }
+    
+    @Test
     public void seAdicionaDoisElfosComMesmoNomeESobrescreve(){
         // Arrange
         ExercitoDeElfos exercito = new ExercitoDeElfos();
@@ -105,6 +114,73 @@ public class ExercitoDeElfosTest {
         exercito.alistarElfo(elfo2);
         // Assert
         assertEquals(elfo2, exercito.buscarElfo("Alasse"));
+    }
+    
+    @Test
+    public void seAdicionaDoisElfosMortosETresVivosAgrupaCorretamente(){
+       // Arrange
+       ExercitoDeElfos exercito = new ExercitoDeElfos();
+       Elfo elfo1 = exercito.criarElfoEDepoisMataLo("Alasse");
+       Elfo elfo2 = exercito.criarElfoEDepoisMataLo("Pelleas");
+       Elfo elfo3 = new ElfoVerde("Keya");
+       Elfo elfo4 = new ElfoVerde("Eirika");
+       Elfo elfo5 = new ElfoVerde("Alasse");
+       // Act
+       exercito.alistarElfo(elfo1);
+       exercito.alistarElfo(elfo2);
+       exercito.alistarElfo(elfo3);
+       exercito.alistarElfo(elfo4);
+       exercito.alistarElfo(elfo5);
+       exercito.agruparPorStatus();
+       // Assert
+       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo1));
+       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.MORTO, elfo2));
+       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo3));
+       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo4));
+       assertTrue(exercito.elfoEstaNaListaDoStatusPassado(Status.VIVO, elfo5));
+    }    
+    
+     @Test
+    public void seBuscaPor4Vivos3MortosERetorna(){
+        // Arrange
+       ExercitoDeElfos exercito = new ExercitoDeElfos();
+       Elfo elfo1 = new ElfoVerde("Pelleas");
+       Elfo elfo2 = new ElfoVerde("Keya");
+       Elfo elfo3 = new ElfoVerde("Eirika");
+       Elfo elfo4 = new ElfoVerde("Alasse");
+       Elfo elfo5 = exercito.criarElfoEDepoisMataLo("Luirlan");
+       Elfo elfo6 = exercito.criarElfoEDepoisMataLo("Cailu");
+       Elfo elfo7 = exercito.criarElfoEDepoisMataLo("Quein");
+        // Act
+       exercito.alistarElfo(elfo1);
+       exercito.alistarElfo(elfo2);
+       exercito.alistarElfo(elfo3);
+       exercito.alistarElfo(elfo4);
+       exercito.alistarElfo(elfo5);
+       exercito.alistarElfo(elfo6);
+       exercito.alistarElfo(elfo7);
+       exercito.agruparPorStatus();
+       
+       // Assert
+       assertTrue(exercito.buscarElfosPorStatus(Status.VIVO).contains(elfo1));
+       assertTrue(exercito.buscarElfosPorStatus(Status.VIVO).contains(elfo2));
+       assertTrue(exercito.buscarElfosPorStatus(Status.VIVO).contains(elfo3));
+       assertTrue(exercito.buscarElfosPorStatus(Status.VIVO).contains(elfo4));
+       assertTrue(exercito.buscarElfosPorStatus(Status.MORTO).contains(elfo5));
+       assertTrue(exercito.buscarElfosPorStatus(Status.MORTO).contains(elfo6));
+       assertTrue(exercito.buscarElfosPorStatus(Status.MORTO).contains(elfo7));
+    }
+    
+    @Test
+    public void seAlistaVivoEBuscaPorMortoNaoEncontra(){
+        // Arrange
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        Elfo elfo1 = new ElfoVerde("Pelleas");
+        // Act
+        exercito.alistarElfo(elfo1);
+        exercito.agruparPorStatus();
+        // Assert
+        assertFalse(exercito.buscarElfosPorStatus(Status.MORTO).contains(elfo1));
     }
     
 }
