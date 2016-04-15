@@ -47,7 +47,7 @@ public class ExercitoDeElfos {
         return exercitoDeElfosAgrupado.get(status);
     }
     
-    public Elfo criarElfoEDepoisMataLo(String nome) { 
+    public static Elfo criarElfoEDepoisMataLo(String nome) { 
      Elfo elfo = new ElfoNoturno(nome);
          for (int i = 0; i < 90; i++) {
              elfo.atirarFlecha(new Dwarf("Balin"));
