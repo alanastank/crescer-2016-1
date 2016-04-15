@@ -15,9 +15,10 @@ public class EstrategiaAtaqueIntercalado implements EstrategiaDeAtaque {
         ArrayList<Elfo> elfosNoturnos = new ArrayList<>();
         
         for(Elfo elfo : elfos){
-            if(elfo instanceof ElfoNoturno){ 
+            if(elfo instanceof ElfoNoturno && elfo.getStatus().equals(Status.VIVO)){ 
                 elfosNoturnos.add(elfo);
-            } else{
+            } 
+            if(elfo instanceof ElfoVerde && elfo.getStatus().equals(Status.VIVO)){ 
                 elfosVerdes.add(elfo);
             }
         }   
