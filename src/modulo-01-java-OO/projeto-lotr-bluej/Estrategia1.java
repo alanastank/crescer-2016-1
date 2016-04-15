@@ -12,21 +12,19 @@ Não crie várias listas para cada tipo de Elfos, faça bom uso do polimorfismo!
 
 public class Estrategia1 implements EstrategiaDeAtaque {
     ArrayList<Elfo> ordemDoUltimoAtaque;
-        
-    public void atacar(ExercitoDeElfos exercito, ArrayList<Dwarf> dwarves){
+    
+    public void atacar(ArrayList<Elfo> elfos, ArrayList<Dwarf> dwarves){
         //ordemDoUltimoAtaque.clear();
         ordemDoUltimoAtaque = new ArrayList<Elfo>();
-        exercito.agruparPorStatus();
-        ArrayList<Elfo> exercitoVivos = exercito.buscarElfosPorStatus(Status.VIVO);
         int contadorElfosNoturnos = 0;
-        int numIntencoes = exercitoVivos.size() * dwarves.size();
+        int numIntencoes = elfos.size() * dwarves.size();
         int quantElfosNoturnosAtiram = (int)(numIntencoes * 0.3);
         
-        for(Elfo elfo : exercitoVivos){
+        for(Elfo elfo : elfos){
             if(elfo instanceof ElfoNoturno){ 
                 contadorElfosNoturnos++;
             }
-            if (contadorElfosNoturnos <= quantElfosNoturnosAtiram || elfo instanceof ElfoVerde ){
+            if (contadorElfosNoturnos <= quantElfosNoturnosAtiram && elfo.getStatus().equals(Status.VIVO) || elfo instanceof ElfoVerde){
                 for(Dwarf dwarf : dwarves){
                     elfo.atirarFlecha(dwarf);
                 }

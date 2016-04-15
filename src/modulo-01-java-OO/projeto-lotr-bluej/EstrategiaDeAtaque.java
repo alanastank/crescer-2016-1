@@ -4,6 +4,6 @@ public interface EstrategiaDeAtaque {
   
     public ArrayList<Elfo> getOrdemDoUltimoAtaque();
     
-    public void atacar(ExercitoDeElfos exercito, ArrayList<Dwarf> dwarves);
+    public void atacar(ArrayList<Elfo> elfos, ArrayList<Dwarf> dwarves);
     
 }

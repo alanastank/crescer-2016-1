@@ -5,12 +5,12 @@ import org.junit.Test;
 import java.util.*;
 
 public class Estrategia1Test {
-    
+        
     @Test 
-    public void seAoAlistar3ElfosNoturnosE1VerdePraAtacarSo2NoturnosAtacam(){
+    public void seAoAlistar3ElfosNoturnosE1VerdePraAtacarSo2NoturnosEOElfoVerdeAtacam(){
         // Arrange
         EstrategiaDeAtaque estrategia = new Estrategia1();
-        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Elfo> exercitoElfos = new ArrayList<>();
         Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
         Elfo elfoNoturno2 = new ElfoNoturno("Rennyn");
         Elfo elfoNoturno3 = new ElfoNoturno("Keya");
@@ -19,17 +19,47 @@ public class Estrategia1Test {
         Dwarf dwarf1 = new Dwarf("Luirlan");
         Dwarf dwarf2 = new Dwarf("Cailu");
         // Act
-        exercito.alistarElfo(elfoNoturno1);
-        exercito.alistarElfo(elfoNoturno2);
-        exercito.alistarElfo(elfoNoturno3);
-        exercito.alistarElfo(elfoVerde1);
+        exercitoElfos.add(elfoNoturno1);
+        exercitoElfos.add(elfoNoturno2);
+        exercitoElfos.add(elfoNoturno3);
+        exercitoElfos.add(elfoVerde1);
         dwarves.add(dwarf1);
         dwarves.add(dwarf2);
-        estrategia.atacar(exercito, dwarves);
+        estrategia.atacar(exercitoElfos, dwarves);
+        // Assert
+        assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno1));
+        assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno2));
+        assertEquals(false, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno3));
+        assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoVerde1));
+    }
+    
+    @Test 
+    public void seAoAlistar3ElfosNoturnosSendo2MortosEAlistar2VerdesPraAtacarSo1NoturnoEOElfosVerdesAtacammm(){
+        // Arrange
+        EstrategiaDeAtaque estrategia = new Estrategia1();
+        ArrayList<Elfo> exercitoElfos = new ArrayList<>();
+        Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
+        Elfo elfoNoturno2 = ExercitoDeElfos.criarElfoEDepoisMataLo("Rennyn");
+        Elfo elfoNoturno3 = ExercitoDeElfos.criarElfoEDepoisMataLo("Keya");
+        Elfo elfoVerde1 = new ElfoVerde("Alasse");
+        Elfo elfoVerde2 = new ElfoVerde("Nelaeryn");
+        ArrayList<Dwarf> dwarves = new ArrayList<>();
+        Dwarf dwarf1 = new Dwarf("Luirlan");
+        Dwarf dwarf2 = new Dwarf("Cailu");
+        // Act
+        exercitoElfos.add(elfoNoturno1);
+        exercitoElfos.add(elfoNoturno2);
+        exercitoElfos.add(elfoNoturno3);
+        exercitoElfos.add(elfoVerde1);
+        exercitoElfos.add(elfoVerde2);
+        dwarves.add(dwarf1);
+        dwarves.add(dwarf2);
+        estrategia.atacar(exercitoElfos, dwarves);
         // Assert
         assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno1));
         assertEquals(false, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno2));
-        assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno3));
+        assertEquals(false, estrategia.getOrdemDoUltimoAtaque().contains(elfoNoturno3));
         assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoVerde1));
-    }
+        assertEquals(true, estrategia.getOrdemDoUltimoAtaque().contains(elfoVerde2));
+    } 
 }
