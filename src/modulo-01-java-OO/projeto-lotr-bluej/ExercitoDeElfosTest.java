@@ -125,7 +125,7 @@ public class ExercitoDeElfosTest {
        Elfo elfo2 = exercito.criarElfoEDepoisMataLo("Pelleas");
        Elfo elfo3 = new ElfoVerde("Keya");
        Elfo elfo4 = new ElfoVerde("Eirika");
-       Elfo elfo5 = new ElfoVerde("Alasse");
+       Elfo elfo5 = new ElfoVerde("Cailu");
        // Act
        exercito.alistarElfo(elfo1);
        exercito.alistarElfo(elfo2);
