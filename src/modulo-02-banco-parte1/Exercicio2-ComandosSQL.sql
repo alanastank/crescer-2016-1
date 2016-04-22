@@ -1,15 +1,16 @@
 --1) Retornar o primeiro nome do associado
-	Select SUBSTRING(Nome, 1, CHARINDEX(' ', Nome, 1) - 1) Nome From Associado;
+	Select SUBSTRING(Nome, 1, CHARINDEX(' ', Nome) - 1) Nome From Associado;
 
 --2) Nome dos associados e a idade de cada um
-	Select Nome, DATEDIFF (YEAR, DataNascimento, getDate()) Idade From Associado;
+	Select Nome, DataNascimento, DATEDIFF (YEAR, DataNascimento, getDate()) Idade From Associado;
  
 --3) Empregados admitidos entre 01/05/1980 e 20/01/1982. Total de meses de trabalho até a data de 31/12/2000.
 	Select *, DATEDIFF (MONTH, DataAdmissao, convert(datetime, '31/12/2000', 103)) As TotalDeMesesAte2000 From Empregado
 	where DataAdmissao between convert(datetime, '01/05/1980', 103) and convert(datetime, '20/01/1982', 103);
 
 --4) Cargo com mais empregados 
-	Select top 1 Cargo, COUNT(IDEmpregado) NumeroEmpregados From Empregado group by Cargo order by COUNT(IDEmpregado) desc;
+	Select top 1 With Ties Cargo, COUNT(IDEmpregado) NumeroEmpregados From Empregado group by Cargo order by NumeroEmpregados desc;
+	-- with ties: adicionar critério de desempate
 	
 --6) Retornar a data e o dia da semana em que os associados completaram ou completarão 50 anos
 	Select Nome,
@@ -28,7 +29,7 @@
 
 --10) Limpar a tabela CidadeAux e insira somente as cidades com nomes e UF's distintos, considere somente o menor id das cidades duplicadas
 	Select MIN(IDCidade) IDCidade, Nome, UF Into CidadeAux From Cidade Group By Nome, UF;
-
+	
 --11) Altere todas as cidades duplicadas acrescentando no inicio do nome um asterisco (*)
 	Update Cidade Set Nome = Concat('* ', Nome) where Nome in(Select Nome From Cidade Group By Nome Having Count(Nome)>1);
 
@@ -55,4 +56,4 @@
 	Delete From Cidade Where IDCidade in(Select MAX(IDCidade) From Cidade Group By Nome Having Count(Nome)>1 );
 
 --15) Adicione uma regra que impeça que exista mais de uma cidade com o mesmo nome em um estado
-	Alter Table Cidade add Unique (Nome);
+	Alter Table Cidade add Constraint UK_Cidade Unique (Nome, UF);
