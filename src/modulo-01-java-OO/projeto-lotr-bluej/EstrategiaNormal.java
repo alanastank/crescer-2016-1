@@ -10,7 +10,7 @@ Ex: 4 Elfos (3 Noturnos + 1 Verde) * 2 Anões = 8 intenções
 Só 2 noturnos (parte inteira de 2.4) podem atacar
 Não crie várias listas para cada tipo de Elfos, faça bom uso do polimorfismo! */
 
-public class Estrategia1 implements EstrategiaDeAtaque {
+public class EstrategiaNormal implements EstrategiaDeAtaque {
     ArrayList<Elfo> ordemDoUltimoAtaque;
     
     public void atacar(ArrayList<Elfo> elfos, ArrayList<Dwarf> dwarves){
