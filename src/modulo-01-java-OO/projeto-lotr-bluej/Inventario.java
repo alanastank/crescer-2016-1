@@ -3,9 +3,6 @@ import java.util.ArrayList;
 public class Inventario {
    
     private ArrayList<Item> listaItens = new ArrayList<>();
-
-    public Inventario() {
-    }
     
     public ArrayList<Item> getListaItens(){
         return listaItens;
@@ -48,10 +45,12 @@ public class Inventario {
     public void ordenarItens(){ 
         Item auxiliaTroca;
         for(int i=0; i < listaItens.size(); i++){
-            for(int j = 0; j < listaItens.size() - 1; j++){ 
-                if(listaItens.get(j).getQuantidade() > listaItens.get(j + 1).getQuantidade()){
-                    auxiliaTroca = listaItens.get(j); // associa o primeiro item a variavel auxiliar
-                    listaItens.set(j, listaItens.get(j + 1)); // associa o segundo item a primeira posição
+            for(int j = 0; j < listaItens.size() - 1; j++){
+                Item itemAtual = listaItens.get(j);
+                Item proximoItem = listaItens.get(j+1);
+                if(itemAtual.getQuantidade() > proximoItem.getQuantidade()){
+                    auxiliaTroca = itemAtual; // associa o primeiro item a variavel auxiliar
+                    listaItens.set(j, proximoItem); // associa o segundo item a primeira posição
                     listaItens.set(j + 1, auxiliaTroca); // associa o primeiro item (auxiliaTroca) a segunda posição
                 } 
             }        
