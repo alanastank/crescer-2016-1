@@ -73,7 +73,7 @@ public class EstrategiaAtaqueIntercaladoTest {
         ArrayList<Elfo> exercitoElfos = new ArrayList<>();
         Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
         Elfo elfoNoturno2 = new ElfoNoturno("Rennyn");
-        Elfo elfoNoturno3 = ExercitoDeElfos.criarElfoEDepoisMataLo("Keya");
+        Elfo elfoNoturno3 = ExercitoDeElfosTest.criarElfoEDepoisMataLo("Keya");
         Elfo elfoVerde1 = new ElfoVerde("Alasse");
         Elfo elfoVerde2 = new ElfoVerde("Nelaeryn");
         Elfo elfoVerde3 = new ElfoVerde("Cailu");

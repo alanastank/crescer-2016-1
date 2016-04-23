@@ -46,12 +46,4 @@ public class ExercitoDeElfos {
     ArrayList<Elfo> buscarElfosPorStatus(Status status){
         return exercitoDeElfosAgrupado.get(status);
     }
-    
-    public static Elfo criarElfoEDepoisMataLo(String nome) { 
-     Elfo elfo = new ElfoNoturno(nome);
-         for (int i = 0; i < 90; i++) {
-             elfo.atirarFlecha(new Dwarf("Balin"));
-         }
-     return elfo;
-    }
 }

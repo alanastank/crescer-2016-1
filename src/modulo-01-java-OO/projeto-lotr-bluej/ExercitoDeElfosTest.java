@@ -121,8 +121,8 @@ public class ExercitoDeElfosTest {
     public void seAdicionaDoisElfosMortosETresVivosAgrupaCorretamente(){
        // Arrange
        ExercitoDeElfos exercito = new ExercitoDeElfos();
-       Elfo elfo1 = exercito.criarElfoEDepoisMataLo("Alasse");
-       Elfo elfo2 = exercito.criarElfoEDepoisMataLo("Pelleas");
+       Elfo elfo1 = criarElfoEDepoisMataLo("Alasse");
+       Elfo elfo2 = criarElfoEDepoisMataLo("Pelleas");
        Elfo elfo3 = new ElfoVerde("Keya");
        Elfo elfo4 = new ElfoVerde("Eirika");
        Elfo elfo5 = new ElfoVerde("Cailu");
@@ -149,9 +149,9 @@ public class ExercitoDeElfosTest {
        Elfo elfo2 = new ElfoVerde("Keya");
        Elfo elfo3 = new ElfoVerde("Eirika");
        Elfo elfo4 = new ElfoVerde("Alasse");
-       Elfo elfo5 = exercito.criarElfoEDepoisMataLo("Luirlan");
-       Elfo elfo6 = exercito.criarElfoEDepoisMataLo("Cailu");
-       Elfo elfo7 = exercito.criarElfoEDepoisMataLo("Quein");
+       Elfo elfo5 = criarElfoEDepoisMataLo("Luirlan");
+       Elfo elfo6 = criarElfoEDepoisMataLo("Cailu");
+       Elfo elfo7 = criarElfoEDepoisMataLo("Quein");
         // Act
        exercito.alistarElfo(elfo1);
        exercito.alistarElfo(elfo2);
@@ -184,4 +184,11 @@ public class ExercitoDeElfosTest {
         assertFalse(exercito.buscarElfosPorStatus(Status.MORTO).contains(elfo1));
     }
     
+    public static Elfo criarElfoEDepoisMataLo(String nome) { 
+     Elfo elfo = new ElfoNoturno(nome);
+         for (int i = 0; i < 90; i++) {
+             elfo.atirarFlecha(new Dwarf("Balin"));
+         }
+     return elfo;
+    }
 }
