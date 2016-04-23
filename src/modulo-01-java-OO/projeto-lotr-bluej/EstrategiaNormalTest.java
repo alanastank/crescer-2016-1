@@ -39,8 +39,8 @@ public class EstrategiaNormalTest {
         EstrategiaDeAtaque estrategia = new EstrategiaNormal();
         ArrayList<Elfo> exercitoElfos = new ArrayList<>();
         Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
-        Elfo elfoNoturno2 = ExercitoDeElfos.criarElfoEDepoisMataLo("Rennyn");
-        Elfo elfoNoturno3 = ExercitoDeElfos.criarElfoEDepoisMataLo("Keya");
+        Elfo elfoNoturno2 = ExercitoDeElfosTest.criarElfoEDepoisMataLo("Rennyn");
+        Elfo elfoNoturno3 = ExercitoDeElfosTest.criarElfoEDepoisMataLo("Keya");
         Elfo elfoVerde1 = new ElfoVerde("Alasse");
         Elfo elfoVerde2 = new ElfoVerde("Nelaeryn");
         ArrayList<Dwarf> dwarves = new ArrayList<>();
