@@ -4,12 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
 
-public class Estrategia1Test {
+public class EstrategiaNormalTest {
         
     @Test 
     public void seAoAlistar3ElfosNoturnosE1VerdePraAtacarSo2NoturnosEOElfoVerdeAtacam(){
         // Arrange
-        EstrategiaDeAtaque estrategia = new Estrategia1();
+        EstrategiaDeAtaque estrategia = new EstrategiaNormal();
         ArrayList<Elfo> exercitoElfos = new ArrayList<>();
         Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
         Elfo elfoNoturno2 = new ElfoNoturno("Rennyn");
@@ -36,7 +36,7 @@ public class Estrategia1Test {
     @Test 
     public void seAoAlistar3ElfosNoturnosSendo2MortosEAlistar2VerdesPraAtacarSo1NoturnoEOElfosVerdesAtacammm(){
         // Arrange
-        EstrategiaDeAtaque estrategia = new Estrategia1();
+        EstrategiaDeAtaque estrategia = new EstrategiaNormal();
         ArrayList<Elfo> exercitoElfos = new ArrayList<>();
         Elfo elfoNoturno1 = new ElfoNoturno("Pelleas");
         Elfo elfoNoturno2 = ExercitoDeElfos.criarElfoEDepoisMataLo("Rennyn");
