@@ -29,9 +29,9 @@ public class EstrategiaNoturnosPorUltimo implements EstrategiaDeAtaque {
            if (elfo.getStatus() == Status.VIVO) {
                for(Dwarf dwarf : dwarves){
                    elfo.atirarFlecha(dwarf);
-               } 
+                } 
+               ordemDoUltimoAtaque.add(elfo);
            }
-           ordemDoUltimoAtaque.add(elfo);
        }
     }  
 }
