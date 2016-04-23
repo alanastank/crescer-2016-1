@@ -6,35 +6,32 @@ import java.util.*;
   Cada Elfo vai atacar todos os Dwarves da Horda. */
   
 public class EstrategiaNoturnosPorUltimo implements EstrategiaDeAtaque {
-    ArrayList<Elfo> ordemDoUltimoAtaque;
+    ArrayList<Elfo> ordemDoUltimoAtaque = new ArrayList<>();
     
-    public void atacar(ArrayList<Elfo> elfos, ArrayList<Dwarf> dwarves){
-        //ordemDoUltimoAtaque.clear();
-        ordemDoUltimoAtaque = new ArrayList<Elfo>();
-        ArrayList<Elfo> elfosNoturnos = new ArrayList<Elfo>();
-        int contadorElfosNoturnos = 0;
-        
-        for(Elfo elfo : elfos){
-            if(elfo instanceof ElfoVerde){ 
-                for(Dwarf dwarf : dwarves){
-                    elfo.atirarFlecha(dwarf);
-                } 
-                ordemDoUltimoAtaque.add(elfo); 
-            } else {
-                elfosNoturnos.add(elfo);
-            }    
-        }
-        
-        for(Elfo elfo : elfosNoturnos){
-            for(Dwarf dwarf : dwarves){
-                elfo.atirarFlecha(dwarf);
-            } 
-            ordemDoUltimoAtaque.add(elfo); 
-        } 
-    }
-        
-    public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
+     public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
         return ordemDoUltimoAtaque;
     }
-   
+    
+     private void ordenarAtaque(ArrayList<Elfo> elfos) {
+        Collections.sort(elfos, new Comparator<Elfo>() {
+            public int compare(Elfo elfoAtual, Elfo proximoElfo) {
+                if (elfoAtual.getClass() == proximoElfo.getClass()) {
+                    return 0;
+                }
+                return elfoAtual instanceof ElfoVerde && proximoElfo instanceof ElfoNoturno ? -1 : 1;
+            }
+        });
+    }
+    
+    public void atacar(ArrayList<Elfo> elfos, ArrayList<Dwarf> dwarves){
+       ordenarAtaque(elfos);
+       for(Elfo elfo : elfos){
+           if (elfo.getStatus() == Status.VIVO) {
+               for(Dwarf dwarf : dwarves){
+                   elfo.atirarFlecha(dwarf);
+               } 
+           }
+           ordemDoUltimoAtaque.add(elfo);
+       }
+    }  
 }

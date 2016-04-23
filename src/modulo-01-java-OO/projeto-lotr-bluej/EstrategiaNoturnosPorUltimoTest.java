@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
+import java.util.ArrayList;
 
 public class EstrategiaNoturnosPorUltimoTest {
    @Test
@@ -59,5 +60,16 @@ public class EstrategiaNoturnosPorUltimoTest {
         assertEquals(elfoNoturno1, estrategia.getOrdemDoUltimoAtaque().get(0));
         assertEquals(elfoNoturno2, estrategia.getOrdemDoUltimoAtaque().get(1));
         assertEquals(elfoNoturno3, estrategia.getOrdemDoUltimoAtaque().get(2));
+   }
+   
+   @Test
+   public void exercitoComListaVazia(){
+        EstrategiaDeAtaque estrategia = new EstrategiaNoturnosPorUltimo();
+        ArrayList<Elfo> exercitoElfos = new ArrayList<>();
+        ArrayList<Dwarf> dwarves = new ArrayList<>();
+       // Act
+        estrategia.atacar(exercitoElfos, dwarves);
+       // Assert
+        assertTrue(estrategia.getOrdemDoUltimoAtaque().isEmpty());
    }
 }
