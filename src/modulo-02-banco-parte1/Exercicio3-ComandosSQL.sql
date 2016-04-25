@@ -34,7 +34,7 @@ rollback
 commit
 
 --7)Liste a diferença que representará o reajuste aplicado no item anterior no somatório dos salários de todos os empregados.
-Select (Sum((E.Salario+(E.Salario*14.5/100)) - E.Salario)) Reajuste From Empregado E INNER JOIN EmpregadoAux EA ON E.IDEmpregado = EA.IDEmpregado;
+Select Sum(EA.Salario - E.Salario) Reajuste From Empregado E INNER JOIN EmpregadoAux EA ON E.IDEmpregado = EA.IDEmpregado;
 
 --8)Liste o departamento com o empregado de maior salário.
 Select top 1 D.IDDepartamento, D.NomeDepartamento From Departamento D INNER JOIN Empregado E ON E.IDDepartamento = D.IDDepartamento 
