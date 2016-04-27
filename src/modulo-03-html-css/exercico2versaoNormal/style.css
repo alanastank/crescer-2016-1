@@ -1,0 +1,54 @@
+body {
+    background: #fff url(bg-topo.jpg) no-repeat;  
+    background-position: center top; 
+    margin: 0 auto;
+    font-family: arial;
+}
+
+nav { 
+    margin: 0 auto;
+    color: #2d2d2d;
+    margin-top: 320px;
+    width: 500px;
+} 
+
+#menu{
+    width: auto;
+    text-align: center;
+    color: #333;
+    font-family: arial; 
+    font-size: 18px;
+    line-height: 1;
+    padding: 15px;
+    background: rgba(118,112, 109, 0.6);
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+a,
+#menu a{
+    color: #fff;
+    text-decoration: initial;
+    padding: 20px;
+}
+
+a{
+    color: #333;    
+}
+
+h1 {
+    margin: 60px auto;
+    background: #444444;
+    width: 60%;
+    padding: 10px 20px;
+    color: #DDDDDD;
+    font-family: arial;
+}
+
+#main{
+margin: 20px auto;
+margin-top: -60px;
+width: 60%;
+min-height: 300px;
+padding: 20px;
+background: #EDEDED;
+color: #333;
