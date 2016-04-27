@@ -12,9 +12,8 @@ nav {
     width: 500px;
 }
 
-#menu{
+#menu {
     text-align: center;
-    color: #333;
     font-family: arial;
     font-size: 18px;
     line-height: 1;
@@ -25,13 +24,13 @@ nav {
 }
 
 a,
-#menu a{
+#menu a {
     color: #fff;
     text-decoration: initial;
     padding: 20px;
 }
 
-a{
+a {
     color: #333;
 }
 
@@ -45,11 +44,21 @@ h1 {
 }
 
 #main {
-margin: 20px auto;
-margin-top: -60px;
-width: 60%;
-min-height: 300px;
-padding: 20px;
-background: #EDEDED;
-color: #333;
+    margin: 20px auto;
+    margin-top: -60px;
+    width: 60%;
+    min-height: 300px;
+    padding: 20px;
+    background: #EDEDED;
+    color: #333;
+}
+
+#main p {
+    width: 95%;
+}
+
+.img-about {
+    width: 220px;
+    float: left;
+    padding-right: 20px;
 }
