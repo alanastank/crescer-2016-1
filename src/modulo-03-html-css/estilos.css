@@ -1,0 +1,40 @@
+body{
+  margin: 0 auto;
+  height: 2000px;
+}
+#topo {
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    background-color: #000;
+    z-index: 1;
+}
+.container {
+  background-color: #ccc;
+  width: 97.8%;
+  position: relative;
+  min-height: 250px;
+  overflow: auto;
+  left: 30px;
+}
+
+.primeiro {
+  top: 30px;
+}
+
+.segundo {
+  top: 60px;
+  margin-bottom: 30px;
+}
+
+.quadrado {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    margin: 30px;
+    float: left;
+  }
+
+  div .quadrado:nth-child(4n+1) {
+    clear: left;
+  }
