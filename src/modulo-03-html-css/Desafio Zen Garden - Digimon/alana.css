@@ -54,7 +54,7 @@ header h1 {
 }
 
 .logo {
-  	content: url(logo.png); 
+  	content: url("https://i.gyazo.com/289d74f62c725b8634242add08b692ae.png"); 
  	width: 250px;
   	margin: 20px 40px;
   	float: left;
