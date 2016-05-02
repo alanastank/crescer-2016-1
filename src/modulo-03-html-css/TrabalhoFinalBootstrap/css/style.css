@@ -15,7 +15,7 @@ body {
 
 header h1 {
   color: #888787;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: lighter;
   position: relative;
   top: -14px;
@@ -136,7 +136,9 @@ ul, li {
   padding:0;
   margin:0;
 }
-a {text-decoration:none;}
+a {
+  text-decoration:none!important;
+}
 
 .profile-wrapper {
   width:200px;
@@ -153,6 +155,9 @@ a {text-decoration:none;}
   position: absolute;
   top: 20px;
   right: 10px;
+}
+.profile-wrapper a{
+  text-decoration: none;
 }
 .profile {
   padding:10px;
