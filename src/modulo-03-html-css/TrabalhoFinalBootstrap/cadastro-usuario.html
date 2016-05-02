@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link href="css/font-awesome.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<header id="top-navbar">
+  <a href="#menu-toggle" class="fa fa-bars" id="menu-toggle" aria-hidden="true"></a>
+  <h1>Projeto Crescer</h1>
+  <form id="demo-2">
+    <input type="search" placeholder="">
+  </form>
+  <nav id="nav-icons">
+    <i class="fa fa-th" id="icons" aria-hidden="true"></i>
+    <i class="fa fa-globe" id="icons" aria-hidden="true"></i>
+  </nav>
+  <!--profile dropdown menu -->
+  <ul class="profile-wrapper">
+    <li>
+      <!-- user profile -->
+      <div class="profile">
+        <img src="img/avatar.jpg" />
+        <!-- more menu -->
+        <ul class="menu">
+          <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Perfil</a></li>
+          <li><a href="#"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;&nbsp;Mudar senha</a></li>
+          <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;&nbsp;Sair</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</header>
+<body>
+
+  <div id="wrapper">
+    <!-- Header do conteúdo -->
+    <header id="section-header">
+      <div>
+        <h2>Cadastro</h2>
+        <h3>Usuário</h3>
+      </div>
+    </header>
+    <!-- /#section-header -->
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <header class="sidebar-profile">
+        <img src="img/avatar.jpg" class="sidebar-avatar" alt="profile-image"/>
+        <h3>Alana Stankiewicz</h3>
+        <p>alanastankiewicz@gmail.com</p>
+        <nav>
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <i class="fa fa-key" aria-hidden="true"></i>
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </nav>
+      </header>
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <h3>Dashboards</h3>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Administrativo</a>
+        </li>
+        <li class="sidebar-brand">
+          <h3>Cadastros</h3>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Contato</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Usuário</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <!-- Formulário de cadastro -->
+      <div class="container container-form">
+        <h2>Cadastro de Usuário</h2>
+        <form>
+          <div class="row">
+            <div class="form-group col-lg-12">
+              <label for="exampleInputName1">Nome<small id="color-grey"> Pessoa física</SMALL></label>
+                <input type="name" class="form-control" id="exampleInputName1" placeholder="Digite seu nome">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-4 col-sm-6">
+                <label for="exampleInputText1">CPF</label>
+                <input type="text" class="form-control" id="exampleInputText1" placeholder="Digite seu CPF">
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <label for="exampleInputEmail1">E-mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite seu e-mail">
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <fieldset disabled>
+                  <label for="disabledTextInput">Disabled input</label>
+                  <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                </fieldset>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-4 col-sm-6">
+                <label for="exampleInputText1">Help block</label>
+                <input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <label for="exampleInputText1">Text area<small id="color-grey"> Write some text</small></label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <label for="disabledTextInput">Select <small id="color-grey"> List of items</small></label>
+                <select class="form-control">
+                  <option>First value</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-3 col-sm-6">
+                <label for="disabledTextInput">Default</label>
+                <select class="form-control">
+                  <option>Option 1</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3 col-sm-6">
+                <label for="disabledTextInput">Multiple</label>
+                <select class="form-control">
+                  <option>Option 1</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3 col-sm-6">
+                <label for="disabledTextInput">Group</label>
+                <select class="form-control">
+                  <option>Option 1</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3 col-sm-6">
+                <label for="disabledTextInput">Search</label>
+                <select class="form-control">
+                  <option>Option 1</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-md-12 col-sm-12">
+              <center><button type="submit" class="btn btn-default">Enviar</button></center>
+            </div>
+
+          </div>
+          <!-- /container-form -->
+        </div>
+        <!-- /#page-content-wrapper -->
+
+      </div>
+      <!-- /#wrapper -->
+
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+
+      <!-- Menu Toggle Script -->
+      <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+      </script>
+
+    </body>
+
+    </html>
