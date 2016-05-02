@@ -5,14 +5,11 @@ body {
     font-family: arial;
 }
 
-nav {
+#menu {
     margin: 0 auto;
     color: #2d2d2d;
     margin-top: 320px;
     width: 500px;
-}
-
-#menu {
     text-align: center;
     font-family: arial;
     font-size: 18px;
@@ -34,13 +31,27 @@ a {
     color: #333;
 }
 
-h1 {
+.titulo {
     margin: 60px auto;
     background: #444444;
     width: 60%;
     padding: 10px 20px;
     color: #DDDDDD;
     font-family: arial;
+    font-size: 30px;
+}
+
+.subtitulo {
+  font-size: 1.5em;
+  color: #333;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+}
+
+.sub-subtitulo {
+  font-size: 1.17em;
+  color: #333;
+  line-height:
 }
 
 #main {
@@ -51,14 +62,23 @@ h1 {
     padding: 20px;
     background: #EDEDED;
     color: #333;
+    overflow: auto;
 }
 
 #main p {
     width: 95%;
+     text-align: justify;
+     line-height: 1.5em;
 }
 
+ header + p {
+   text-indent: 1.5em;
+ }
+
 .img-about {
-    width: 220px;
+    width: 240px;
     float: left;
     padding-right: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
