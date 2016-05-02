@@ -1,0 +1,249 @@
+body {
+  margin: 0 auto;
+  background-color: #E4E9F0;
+}
+
+#top-navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  position: fixed;
+  padding: 5px 35px;
+  z-index: 10;
+  box-shadow: 0px 3px 65px -11px rgba(89,89,89,1);
+}
+
+header h1 {
+  color: #888787;
+  font-family: 'Montserrat';
+  font-weight: lighter;
+  position: relative;
+  top: -14px;
+  left: 35px;
+}
+
+
+/*Search bar*/
+@media(max-width:500px) {
+  #nav-icons {
+    display: none;
+  }
+  .profile-wrapper {
+    display: none;
+  }
+}
+
+#nav-icons {
+  position: absolute;
+  top: 22px;
+  right: 110px;
+}
+
+#icons {
+  text-decoration: none;
+  color: #888787;
+  font-size: 20px;
+  margin-left: 26px;
+  font-weight: lighter;
+}
+
+#menu-toggle {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  text-decoration: none;
+  color: #888787;
+  font-size: 20px;
+}
+
+/*Search bar*/
+@media(max-width:1000px) {
+  input[type=search]{
+    display: none;
+  }
+}
+
+#demo-2 {
+  position: absolute;
+  top: 14px;
+  right: 180px;
+  z-index: 2;
+}
+input {
+  outline: none;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none;
+}
+input[type=search] {
+  background: url("../img/search2.png") no-repeat 9px center;
+  background-size: 18px;
+  padding: 9px 10px 9px 32px;
+  width: 55px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  border:none;
+}
+input[type=search]:focus {
+  width: 130px;
+  margin-right: 10px;
+  background-color: #D5D5D5;
+}
+
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+#demo-2 input[type=search] {
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+  background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+  width: 130px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #efefef;
+  cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+  color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+  color: transparent;
+}
+/* Profile Edit Dropdown */
+
+ul, li {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+a {text-decoration:none;}
+
+.profile-wrapper {
+  width:200px;
+  position:absolute;;
+  top: 0px;
+  right: 30px;
+}
+.profile-wrapper::after {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+.profile-wrapper::before {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+.profile {
+  padding:10px;
+}
+.profile img {
+  width:40px;
+  border-radius: 50%;
+  display:inline;
+  float:right;
+}
+
+/* hide menu */
+.menu {
+  display:none;
+  clear:both;
+  position: absolute;
+  background: #fff;
+  width: auto;
+  padding: 10px 20px;
+  margin-left: 30px;
+  margin-top: 40px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.menu li {
+  width: 130px;
+  font-size:16px;
+  margin:10px 0 0;
+  font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.menu li a {
+  color:#999999;
+}
+.menu li:hover a {
+  color:#5E9897;
+}
+
+/* hover profile show menu */
+.profile:hover .menu {
+  display:block;
+}
+
+#section-header {
+  background: #cecece;
+  height: 160px;
+  padding: 5px 30px;
+  font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+}
+
+#section-header h2 {
+  font-weight: 400;
+  color: #888787;
+}
+
+#section-header h3 {
+  line-height: 1px;
+  font-weight: lighter;
+  font-size: 16px;
+  margin-top: -5px;
+  color: #888787;
+}
+
+#section-header div {
+  margin-top: 70px;
+}
+
+.container-form {
+  background-color: white;
+  border-radius: 10px;
+  width: 50%;
+  height: auto;
+}
+.container-form small{
+  color: #888787;
+  text-transform: uppercase;
+}
+.container-form label {
+  color: #2C2C31;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.btn-default {
+    color: #2C2C31 !important;
+    background-color: #cecece !important;
+    margin-top: 10px;
+}
+
+.btn-default:hover {
+    color: #ffffff !important;
+    background-color: #5E9897 !important;
+    border: 1px solid #5E9897 !important;
+}
