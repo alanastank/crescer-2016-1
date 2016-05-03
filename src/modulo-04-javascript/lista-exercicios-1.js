@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* 1 - Faça uma função chamada daisyGame que receba por argumento o número de pétalas da margarida e retorne
 'Love me' ou 'Love me not' (Lembre do jogo "Bem me quer, mal me quer"). Exemplo:
@@ -46,7 +46,7 @@ function imprime(listaInstrutores, concatenaFraseInstrutor) {
 function somar(valor1){
   return function somar2(valor2){
     return valor1 + valor2;
-  }
+  };
 }
 
 /* 5 - Faça uma função fiboSum que calcule a soma da sequência de Fibonacci para n números informados. Exemplo de chamada:
