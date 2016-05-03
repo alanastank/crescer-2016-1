@@ -1,3 +1,5 @@
+'use strict'
+
 /* 1 - Faça uma função chamada daisyGame que receba por argumento o número de pétalas da margarida e retorne
 'Love me' ou 'Love me not' (Lembre do jogo "Bem me quer, mal me quer"). Exemplo:
 daisyGame(4); => 'Love me not' */
@@ -41,22 +43,27 @@ function imprime(listaInstrutores, concatenaFraseInstrutor) {
 
 /* 4 - Escreva uma função somar que permite somar dois números através de duas chamadas diferentes (não necessariamente pra mesma função).*/
 
+function somar(valor1){
+  return function somar2(valor2){
+    return valor1 + valor2;
+  }
+}
+
 /* 5 - Faça uma função fiboSum que calcule a soma da sequência de Fibonacci para n números informados. Exemplo de chamada:
 fiboSum(7); => 33 (soma dos 7 primeiros números da sequência: 1+1+2+3+5+8+13) */
 
 function fiboSum(valor){
-	var sequencia = [1, 1];
-	var proximoValor;
+  var sequencia = [1, 1];
+  var proximoValor;
   var soma = 2;
 
-	for (var i=2; i<=valor-1; i++){
-		proximoValor = sequencia[i-1] + sequencia[i-2];
-		sequencia.push(proximoValor);
+  for (var i=2; i<=valor-1; i++){
+    proximoValor = sequencia[i-1] + sequencia[i-2];
+    sequencia.push(proximoValor);
     soma += proximoValor;
-	}
+  }
   console.log('Sequência: ' + sequencia,'\nSoma: ' + soma);
 }
-
 
 /* 6 - Escreva uma função queroCafe que recebe dois parâmetros: mascada (Valor numérico) e precos (Lista de preços de café)
 A sua implementação deve retornar uma string com todos os preços que estão abaixo ou igual ao valor mascada ordenados de
@@ -71,3 +78,39 @@ function queroCafe (mascada, precos){
   }
   return precoAbaixoOuIgualMascada.sort().join();
 }
+
+/* 7 - Implemente uma função contarPorTipo que recebe dois argumentos:
+um objeto que pode ter várias propriedades, de vários tipos diferentes e uma string com os seguintes possíveis valores:
+'string', 'number', 'boolean', 'object', 'undefined', 'null', 'function', 'array'
+A função deve contar quantas propriedades dentro do objeto informado no primeiro parâmetro são do tipo do segundo parâmetro.*/
+
+function contarPorTipo (obj, stringTipo){
+  var soma = 0;
+  for (var i in obj) {
+    if (typeof obj[i] === stringTipo) {
+      soma++;
+    }
+    else if (Array.isArray(obj[i]) && stringTipo === 'array'){
+      soma++;
+    }
+    if (obj[i] === null && stringTipo === 'null'){
+      soma++;
+    }
+  }
+  return soma;
+}
+
+/* 8 - Analise o código abaixo e coloque um comentário no seu arquivo JS explicando o resultado. */
+
+var gohan = 'gohan', goku = 'Goku'; // declara variáveis no escopo global
+
+function revelarSaiyaman() {
+  // var gohan; => Hoisting: em tempo de execução, todas as variáveis e declarações de funções são movidas para o início de cada função
+  console.log(gohan); // imprime undefined
+  goku = 'Son Goku'; // sobrescreve goku, declarado no escopo global como 'Son Goku'
+  var gohan = 'Son ' + gohan; // declara uma variável gohan, de escopo local, que sobrescreve a variável gohan declarada no escopo global
+  return gohan; // retorna 'Son undefined', uma vez que '+ gohan' na expressão aponta pra uma variável não atribuida anteriormente e que possui, portanto, valor 'undefined'
+}
+
+console.log(revelarSaiyaman()); // imprime 'Son undefined', que é o retorno da função revelarSaiyaman()
+console.log(goku); // imprime 'Son Goku', que é o valor atribuido à variável no escopo local
