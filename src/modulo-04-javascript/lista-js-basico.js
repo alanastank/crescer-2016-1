@@ -37,6 +37,8 @@ function imprime(listaInstrutores, concatenaFraseInstrutor) {
   for(var i=0; i<listaInstrutores.length; i++){
     if(verificaFuncao(concatenaFraseInstrutor)){
       concatenaFraseInstrutor(listaInstrutores[i]);
+    } else {
+      console.log('TypeError: number is not a function');
     }
   }
 }
@@ -62,7 +64,7 @@ function fiboSum(valor){
     sequencia.push(proximoValor);
     soma += proximoValor;
   }
-  console.log('Sequência: ' + sequencia,'\nSoma: ' + soma);
+  return soma;
 }
 
 /* 6 - Escreva uma função queroCafe que recebe dois parâmetros: mascada (Valor numérico) e precos (Lista de preços de café)
@@ -87,14 +89,10 @@ A função deve contar quantas propriedades dentro do objeto informado no primei
 function contarPorTipo (obj, stringTipo){
   var soma = 0;
   for (var i in obj) {
-    if (Array.isArray(obj[i]) && stringTipo === 'array'){
-      soma++;
-    }
-    else if (obj[i] === null && stringTipo === 'null'){
-      soma++;
-    }
-    else if (typeof obj[i] === stringTipo) {
-      soma++;
+    if (!(Array.isArray(obj[i]) && stringTipo === 'object')) {
+      if (Array.isArray(obj[i]) && stringTipo === 'array') soma++;
+      else if (obj[i] === null && stringTipo === 'null') soma++;
+      else if (typeof obj[i] === stringTipo) soma++;
     }
   }
   return soma;
