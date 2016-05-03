@@ -53,11 +53,11 @@ function somar(valor1){
 fiboSum(7); => 33 (soma dos 7 primeiros números da sequência: 1+1+2+3+5+8+13) */
 
 function fiboSum(valor){
-  var sequencia = [1, 1];
+  var sequencia = [0, 1];
   var proximoValor;
-  var soma = 2;
+  var soma = 1;
 
-  for (var i=2; i<=valor-1; i++){
+  for (var i=2; i<=valor; i++){
     proximoValor = sequencia[i-1] + sequencia[i-2];
     sequencia.push(proximoValor);
     soma += proximoValor;
@@ -76,7 +76,7 @@ function queroCafe (mascada, precos){
       precoAbaixoOuIgualMascada.push(precos[i]);
     }
   }
-  return precoAbaixoOuIgualMascada.sort().join();
+  return precoAbaixoOuIgualMascada.sort().join(', ');
 }
 
 /* 7 - Implemente uma função contarPorTipo que recebe dois argumentos:
@@ -87,13 +87,13 @@ A função deve contar quantas propriedades dentro do objeto informado no primei
 function contarPorTipo (obj, stringTipo){
   var soma = 0;
   for (var i in obj) {
-    if (typeof obj[i] === stringTipo) {
+    if (Array.isArray(obj[i]) && stringTipo === 'array'){
       soma++;
     }
-    else if (Array.isArray(obj[i]) && stringTipo === 'array'){
+    else if (obj[i] === null && stringTipo === 'null'){
       soma++;
     }
-    if (obj[i] === null && stringTipo === 'null'){
+    else if (typeof obj[i] === stringTipo) {
       soma++;
     }
   }
