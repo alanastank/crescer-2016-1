@@ -13,8 +13,8 @@ describe('Ex 2. Canivete suíço', function() {
 });
 
 describe('Ex 4. Altura média', function() {
-  it('retorna 1.85', function() {
-    expect(obterAlturaMedia()).toEqual(1.85);
+  it('retorna 1.86', function() {
+    expect(obterAlturaMedia()).toEqual(1.86);
   });
 });
 
