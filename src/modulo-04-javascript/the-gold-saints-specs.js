@@ -42,9 +42,8 @@ describe('Ex 7. IMC', function() {
   });
 });
 
-// está errado, tem que arrumar
 describe('Ex 8. Sobrepeso', function() {
   it('retorna cavaleiro de id 2', function() {
-    expect(obterSobrepeso()).toEqual(goldSaints[1]);
+    expect(obterSobrepeso()).toEqual([goldSaints[1]]);
   });
 });
