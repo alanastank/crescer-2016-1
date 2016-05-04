@@ -47,7 +47,7 @@ IMPORTANTE: a altura deve ser retornada em metros e de forma numérica.*/
 function obterAlturaMediana() {
   var alturas = [];
   for(var i in goldSaints){
-    alturas.push(goldSaints[i].alturaCm);
+    alturas.push(goldSaints[i].alturaCm/100);
   }
   alturas.sort();
   var metade = (alturas.length/2);
