@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Trabalho Final JS</title>
+  <style media="screen">
+  body {
+    margin: 0px;
+    font-family: arial;
+  }
+
+  header {
+    background: #000;
+    position: fixed;
+    top:0;
+    height: 60px;
+    width: 100%;
+    padding: 0px 20px;
+    z-index: 1;
+  }
+
+  header h1 {
+    color: #fff;
+    margin-top: 12px;
+  }
+
+  #main {
+    position: absolute;
+    top: 60px;
+    padding-bottom: 10px;
+  }
+
+  #main > h1 {
+    margin-left: 20px;
+  }
+
+  #cavaleiros li {
+    list-style: none;
+    display: inline;
+    margin: 0 10px;
+    position: relative;
+    left: 55px;
+  }
+
+  #cavaleiros li img {
+    width: 172px;
+    height: 208px;
+  }
+
+  #frmNovoCavaleiro {
+    padding: 0 20px;
+  }
+
+  #detalhes-cavaleiro {
+    width: 50%;
+    min-height: auto;
+    background: #ccc;
+    padding: 5px 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin: 0 auto;
+    display: none;
+  }
+
+  #detalhes-cavaleiro h3 {
+    line-height: 10px;
+  }
+
+  #detalhes-cavaleiro h1 {
+    color: #fff;
+    background: #000;
+    padding: 10px 20px;
+    width: 100%;
+    height: 15px;
+    margin-left: -20px;
+    margin-top: -10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  </style>
+  <script type="text/javascript" src="lib/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript" src="cadastro-cavaleiros.js"></script>
+</head>
+<header id="#header">
+  <h1>Gold Saints</h1>
+</header>
+<body>
+  <!-- Formulário de cadastro -->
+  <article id="main">
+    <h1>Cadastro de Gold Saints</h1>
+    <form id="frmNovoCavaleiro" method="POST">
+      <label for="txtNomeCavaleiro">Nome</label>
+      <input id="txtNomeCavaleiro" type="text" name="nome" placeholder="Ex: Shiryu">
+
+      <label for="numberAltura">Altura</label>
+      <input id="numberAltura" type="number" name="altura" placeholder="Ex: 1.85" min="0">
+
+      <label for="dateNascimento">Data de Nascimento</label>
+      <input id="dateNascimento" type="date" name="dataNascimento" placeholder="Ex: 1.85">
+
+      <label for="txtGolpes">Golpes</label>
+      <button id="addGolpes" type="submit">Adicionar Golpes</button>
+      <input id="txtGolpes" type="text" name="golpes" placeholder="Ex: 'Golpe de chifre'" style="display:none;">
+
+      <label for="txtLocalNascimento">Local de Nascimento</label>
+      <input id="txtLocalNascimento" type="text" name="localNascimento" placeholder="Ex: 'Brasil'">
+
+      <label for="txtLocalTreinamento">Local de Treinamento</label>
+      <input id="txtLocalTreinamento" type="text" name="localTreinamento" placeholder="Ex: 'Brasil'">
+
+      <label for="numberPeso">Peso</label>
+      <input id="numberPeso" type="text" name="peso" placeholder="Ex: 70.80" min="0">
+
+      <label for="slSigno">Signo</label>
+      <select id="slSigno" name="signo">
+        <option>Selecione</option>
+        <option value="aries">Áries</option>
+        <option value="touro">Touro</option>
+        <option value="gemeos">Gêmeos</option>
+        <option value="cancer">Câncer</option>
+        <option value="leão">Leão</option>
+        <option value="virgem">Virgem</option>
+        <option value="libra">Libra</option>
+        <option value="escorpiao">Escorpião</option>
+        <option value="sagitario">Sagitário</option>
+        <option value="capricornio">Capricórnio</option>
+        <option value="aquario">Aquário</option>
+        <option value="peixes">Peixes</option>
+      </select>
+
+      <label for="slTipoSanguineo">Tipo Sanguíneo</label>
+      <select id="slTipoSanguineo" name="tipoSanguineo">
+        <option>Selecione</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="AB">AB</option>
+        <option value="O">O</option>
+      </select>
+
+      <label for="txtUrlImagem">URL Imagem</label>
+      <input id="txtUrlImagem" type="text" name="urlImagem" placeholder="Ex: bit.ly/shiryu.png">
+      <input type="checkbox" name="Isthumbnail" value="Isthumbnail">É thumbnail?
+
+
+      <button type="submit">Cadastrar!</button>
+    </form>
+    <!-- Fim do formulário de cadastro -->
+    <hr>
+    <ul id="cavaleiros"></ul>
+
+    <section id="detalhes-cavaleiro">
+    </section>
+
+  </article>
+</body>
+</html>
