@@ -10,37 +10,27 @@ function daisyGame(numPetalas){
 
 /* 2 - Faça uma função chamada maiorTexto que receba um array de strings e retorne o texto com maior número de caracteres.*/
 
-function maiorTexto (valores){
-  var maiorString = '';
-
-  for (var i=0; i<valores.length; i++){
-    if(valores[i].length > maiorString.length){
-      maiorString = valores[i];
-    }
-  }
-  return maiorString;
+// Ordena as strings de forma decrescente e retorna o primeiro valor
+function maiorTexto(arr){
+  return arr.sort(function(a, b){
+    return b.length - a.length;
+  })[0];
 }
 
 /* 3 - Faça uma função chamada imprime que receba dois parâmetros: Um array de strings (['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'])
 e uma função. Dentro da função imprime chame a função do segundo parâmetro para cada elemento do array.
 Retorno: 'olá querido instrutor:' + instrutor */
 
-function verificaFuncao(fn) {
-  return typeof fn === 'function';
+function concatenaFraseInstrutor(nomeInstrutor){
+    console.log('olá querido instrutor: ' + nomeInstrutor);
 }
 
-function concatenaFraseInstrutor (nomeInstrutor){
-  console.log('olá querido instrutor:' + nomeInstrutor);
-}
-
-function imprime(listaInstrutores, concatenaFraseInstrutor) {
-  for(var i=0; i<listaInstrutores.length; i++){
-    if(verificaFuncao(concatenaFraseInstrutor)){
-      concatenaFraseInstrutor(listaInstrutores[i]);
-    } else {
-      console.log('TypeError: number is not a function');
-    }
-  }
+function imprime(listaInstrutores, concatenaFraseInstrutor){
+  listaInstrutores.forEach(function(nomeInstrutor) {
+      if(typeof concatenaFraseInstrutor === 'function')
+      concatenaFraseInstrutor(nomeInstrutor);
+      else console.log('TypeError: the second parameter is not a function');
+  });
 }
 
 /* 4 - Escreva uma função somar que permite somar dois números através de duas chamadas diferentes (não necessariamente pra mesma função).*/
@@ -55,9 +45,7 @@ function somar(valor1){
 fiboSum(7); => 33 (soma dos 7 primeiros números da sequência: 1+1+2+3+5+8+13) */
 
 function fiboSum(valor){
-  var sequencia = [0, 1];
-  var proximoValor;
-  var soma = 1;
+  var sequencia = [0, 1], proximoValor, soma = 1;
 
   for (var i=2; i<=valor; i++){
     proximoValor = sequencia[i-1] + sequencia[i-2];
@@ -72,19 +60,28 @@ A sua implementação deve retornar uma string com todos os preços que estão a
 forma ascendente e separados por ,. Ex: queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]); // '1.15,2.12,3.11'*/
 
 function queroCafe (mascada, precos){
-  var precoAbaixoOuIgualMascada = [];
-  for (var i = 0; i < precos.length; i++) {
-    if(precos[i] <= mascada){
-      precoAbaixoOuIgualMascada.push(precos[i]);
-    }
-  }
-  return precoAbaixoOuIgualMascada.sort().join(', ');
+    var precosOrdenados = precos.sort(function(a, b){ return a - b; });
+    return precosOrdenados.filter(function(preco){
+      return preco <= mascada;
+    }).join(', ');
 }
 
 /* 7 - Implemente uma função contarPorTipo que recebe dois argumentos:
 um objeto que pode ter várias propriedades, de vários tipos diferentes e uma string com os seguintes possíveis valores:
 'string', 'number', 'boolean', 'object', 'undefined', 'null', 'function', 'array'
 A função deve contar quantas propriedades dentro do objeto informado no primeiro parâmetro são do tipo do segundo parâmetro.*/
+
+// function contarPorTipo (obj, stringTipo){
+//   var soma = 0;
+//   for (var i in obj) {
+//     if (!(Array.isArray(obj[i]) && stringTipo === 'object')) {
+//       if (Array.isArray(obj[i]) && stringTipo === 'array') soma++;
+//       else if (obj[i] === null && stringTipo === 'null') soma++;
+//       else if (typeof obj[i] === stringTipo) soma++;
+//     }
+//   }
+//   return soma;
+// }
 
 function contarPorTipo (obj, stringTipo){
   var soma = 0;
