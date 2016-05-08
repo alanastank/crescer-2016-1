@@ -22,14 +22,13 @@ e uma função. Dentro da função imprime chame a função do segundo parâmetr
 Retorno: 'olá querido instrutor:' + instrutor */
 
 function concatenaFraseInstrutor(nomeInstrutor){
-    console.log('olá querido instrutor: ' + nomeInstrutor);
+  console.log('olá querido instrutor: ' + nomeInstrutor);
 }
 
 function imprime(listaInstrutores, concatenaFraseInstrutor){
   listaInstrutores.forEach(function(nomeInstrutor) {
-      if(typeof concatenaFraseInstrutor === 'function')
+    if(typeof concatenaFraseInstrutor === 'function')
       concatenaFraseInstrutor(nomeInstrutor);
-      else console.log('TypeError: the second parameter is not a function');
   });
 }
 
@@ -60,10 +59,10 @@ A sua implementação deve retornar uma string com todos os preços que estão a
 forma ascendente e separados por ,. Ex: queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]); // '1.15,2.12,3.11'*/
 
 function queroCafe (mascada, precos){
-    var precosOrdenados = precos.sort(function(a, b){ return a - b; });
-    return precosOrdenados.filter(function(preco){
-      return preco <= mascada;
-    }).join(', ');
+  var precosOrdenados = precos.sort(function(a, b){ return a - b; });
+  return precosOrdenados.filter(function(preco){
+    return preco <= mascada;
+  }).join();
 }
 
 /* 7 - Implemente uma função contarPorTipo que recebe dois argumentos:

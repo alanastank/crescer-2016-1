@@ -130,10 +130,10 @@ describe('Ex 5. Fibona', function() {
 
 describe('Ex 6. Quero café', function() {
   it('quando informa vários números', function() {
-    expect(queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ])).toBe('1.15, 2.12, 3.11');
+    expect(queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ])).toBe('1.15,2.12,3.11');
   });
   it('quando informa vários números e todos menores', function() {
-    expect(queroCafe(300, [ 5.16, 2.12, 1.15, 3.11, 17.5 ])).toBe('1.15, 2.12, 3.11, 5.16, 17.5');
+    expect(queroCafe(300, [ 5.16, 2.12, 1.15, 3.11, 17.5 ])).toBe('1.15,2.12,3.11,5.16,17.5');
   });
   it('quando informa vários números e nenhum menor', function() {
     expect(queroCafe(0.3, [ 5.16, 2.12, 1.15, 3.11, 17.5 ])).toBe('');
