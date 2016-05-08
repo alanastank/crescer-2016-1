@@ -70,18 +70,6 @@ um objeto que pode ter várias propriedades, de vários tipos diferentes e uma s
 'string', 'number', 'boolean', 'object', 'undefined', 'null', 'function', 'array'
 A função deve contar quantas propriedades dentro do objeto informado no primeiro parâmetro são do tipo do segundo parâmetro.*/
 
-// function contarPorTipo (obj, stringTipo){
-//   var soma = 0;
-//   for (var i in obj) {
-//     if (!(Array.isArray(obj[i]) && stringTipo === 'object')) {
-//       if (Array.isArray(obj[i]) && stringTipo === 'array') soma++;
-//       else if (obj[i] === null && stringTipo === 'null') soma++;
-//       else if (typeof obj[i] === stringTipo) soma++;
-//     }
-//   }
-//   return soma;
-// }
-
 function contarPorTipo (obj, stringTipo){
   var soma = 0;
   for (var i in obj) {
