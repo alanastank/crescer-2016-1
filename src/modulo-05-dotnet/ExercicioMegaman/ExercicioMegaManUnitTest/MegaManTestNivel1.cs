@@ -71,12 +71,13 @@ namespace MegaManUnitTest
         {
             // Arrange
             var megaman = new Megaman();
-            var esperado = "Nome: Megaman, Vida: 25, Ataque: 9, Defesa: 0";
+            var bot = new Bot();
             // Act
-            // vida = 25
+
             megaman.ReceberDano(71);
+            megaman.Atacar(bot);
             // Assert
-            Assert.AreEqual(esperado, megaman.ToString());
+            Assert.AreEqual(91, bot.Vida);
         }
     }
 }

@@ -21,20 +21,10 @@ namespace ExercicioMegaman
             }
         }
 
-        protected override int Ataque
-        {
-            get
-            {
-                if (Vida < 30) return Ataque += 3;
-                return base.Ataque;
-            }
-
-        }
-
         public override void Atacar(Robo robo)
         {
+            if (Vida < 30) Ataque += 3;
             robo.ReceberDano(Ataque);
         }
-       
     }
 }
