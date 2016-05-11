@@ -20,18 +20,16 @@ namespace MVC.Controllers
 
         public ActionResult Sobre()
         {
-            var alana = new List<SobreMimModel>()
-                {
-                    new SobreMimModel()
-                    {
-                        Nome = "Alana",
-                        Idade = 18,
-                        Origem = "São Leopoldo, RS - Brasil",
-                        Escolaridade = "Técnico em Informática Integrado ao Ensino Médio (IFSUL)",
-                        Contato = "alanastankiewicz@gmail.com"
-                    }
-                };
-            return View();
+            var alana = new SobreMimModel()
+            {
+                UrlImagem = "../Content/Imagens/me.png",
+                Nome = "Alana Stankiewicz de Souza",
+                Idade = 18,
+                Origem = "São Leopoldo, RS - Brasil",
+                Escolaridade = "Técnico em Informática Integrado ao Ensino Médio (IFSUL)",
+                Contato = "alanastankiewicz@gmail.com"
+            };
+            return View(alana);
         }
     }
 }

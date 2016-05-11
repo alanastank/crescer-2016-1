@@ -7,6 +7,7 @@ namespace MVC.Models
 {
     public class SobreMimModel
     {
+        public string UrlImagem { get; set; }
         public string Nome { get; set; }
         public int Idade { get; set; }
         public string Origem { get; set; }
