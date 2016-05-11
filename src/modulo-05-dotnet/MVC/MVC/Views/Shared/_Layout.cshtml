@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+@*<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Street Fighter - @ViewBag.Title</title>
+    <link href="~/Content/Estilos/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="menu">
+        <span class="item">
+            @Html.ActionLink("Inicio", "Index", "StreetFighter", new { style = "border: 1px solid yellow;", @class = "menu-link" })            
+            <a href="~/StreetFighter">Início</a>
+        </span>
+        <span class="item">
+            <a href="https://www.google.com.br/search?q=Street+Fighter&tbm=nws">Noticia</a>
+        </span>
+        <span class="item">
+            <a href="ficha-tecnica.html#conteudo">Ficha Técnica</a>
+        </span>
+        <span class="item">
+            <a href="sobre.html#conteudo">Sobre</a>
+        </span>
+    </div>
+
+    <div id="conteudo" class="conteudo">
+        <div class="titulo">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="corpo">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>*@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Street Fighter - @ViewBag.Title</title>
+    <link href="~/Content/Estilos/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav id="menu">
+        <a href="~/StreetFighter">Index</a>
+        <a href="https://www.google.com.br/search?q=Street+Fighter&oq=Street+Fighter&aqs=chrome..69i57j69i61l3j0l2.635j0j7&sourceid=chrome&ie=UTF-8#q=Street+Fighter&tbm=nws" target="_blank">Notícias</a>
+        <a href="~/StreetFighter/FichaTecnica">Ficha Técnica</a>
+        <a href="~/StreetFighter/Sobre">Sobre</a>
+    </nav>
+
+    <header class="titulo">@ViewBag.Title</header>
+
+    <article id="main">
+        @RenderBody()
+    </article>
+</body>
+</html>
