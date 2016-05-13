@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameloNinja.MVC", "CameloNinja\CameloNinja.MVC.csproj", "{D0BF7A86-9D68-441C-9864-7F074C21C929}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{80A687FA-2D4D-43A3-89D4-7639726B3C37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{64EDDFC8-DEB6-4080-97CB-DB732A001AA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestrutura", "3 - Infraestrutura", "{22468421-8790-4D50-9AAF-10033BBACF02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameloNinja.Dominio", "CameloNinjaa.Dominio\CameloNinja.Dominio.csproj", "{82EF05BD-3C6A-4E03-B1C7-76D42D955876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameloNinja.Repositorio", "RepositorioVendas\CameloNinja.Repositorio.csproj", "{CF70845F-AD43-46AF-B59A-91384EC4510D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0BF7A86-9D68-441C-9864-7F074C21C929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BF7A86-9D68-441C-9864-7F074C21C929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BF7A86-9D68-441C-9864-7F074C21C929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BF7A86-9D68-441C-9864-7F074C21C929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EF05BD-3C6A-4E03-B1C7-76D42D955876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82EF05BD-3C6A-4E03-B1C7-76D42D955876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82EF05BD-3C6A-4E03-B1C7-76D42D955876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82EF05BD-3C6A-4E03-B1C7-76D42D955876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF70845F-AD43-46AF-B59A-91384EC4510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF70845F-AD43-46AF-B59A-91384EC4510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF70845F-AD43-46AF-B59A-91384EC4510D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF70845F-AD43-46AF-B59A-91384EC4510D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0BF7A86-9D68-441C-9864-7F074C21C929} = {80A687FA-2D4D-43A3-89D4-7639726B3C37}
+		{82EF05BD-3C6A-4E03-B1C7-76D42D955876} = {64EDDFC8-DEB6-4080-97CB-DB732A001AA6}
+		{CF70845F-AD43-46AF-B59A-91384EC4510D} = {22468421-8790-4D50-9AAF-10033BBACF02}
+	EndGlobalSection
+EndGlobal
