@@ -1,4 +1,5 @@
-﻿using CameloNinja.MVC.Models;
+﻿using CameloNinja.Dominio;
+using CameloNinja.MVC.Models;
 using CameloNinja.Repositorio;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CameloNinjaMVC.Controllers
+namespace CameloNinja.MVC.Controllers
 {
     public class PedidoController : Controller
     {
@@ -14,33 +15,37 @@ namespace CameloNinjaMVC.Controllers
 
         public ActionResult Cadastro()
         {
-            return View();
+                return View();
         }
 
         public ActionResult Salvar(PedidoModel model)
         {
-            if (model.DataEntrega.AddDays(-7) < DateTime.Today)
-                ModelState.AddModelError("DataEntrega", "Data deve ser maior do que 7 dias");
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //var pedido = new Pedido();
-                    //repositorio.IncluirPedido();
+                    var pedido = new Pedido(
+                        model.DataEntrega,
+                        model.NomeProduto, 
+                        model.Valor, 
+                        model.TipoPagamento, 
+                        model.NomeCliente, 
+                        model.Cidade, 
+                        model.Estado
+                    );
+
+                    repositorio.IncluirPedido(pedido);
+
+                    ViewBag.MensagemSucesso = "Pedido salvo com sucesso!";
+                    return View("Detalhes", pedido);
                 }
                 catch (ArgumentException ex)
                 {
                     ModelState.AddModelError("", ex.Message);
-                    return View("Cadastro", model);
                 }
+            }
 
-                return View("Detalhes", model);
-            }
-            else
-            {
-                return View("Cadastro", model);
-            }
+            return View("Cadastro", model);
         }
 
         public ActionResult Detalhes(int id)
@@ -50,11 +55,20 @@ namespace CameloNinjaMVC.Controllers
             return View(pedido);
         }
 
-        public ActionResult Listagem()
+        public ActionResult Listagem(string cliente, string produto)
         {
             var pedidos = repositorio.ObterPedidos();
 
             return View(pedidos);
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            repositorio.ExcluirPedido(id);
+
+            ViewBag.Mensagem = "Pedido excluído com sucesso!";
+
+            return View("Mensagem");
         }
     }
 }
