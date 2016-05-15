@@ -49,3 +49,21 @@ a {
     text-decoration: none!important;
     color: #333!important;
 }
+
+tbody > tr > td {
+    border: none!important;
+    text-align: center;
+}
+
+.table-bordered > tbody > tr > th {
+    border: none!important;
+    text-align: center;
+}
+
+table {
+    border: none!important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #eaeaea!important;
+}
