@@ -10,11 +10,12 @@ namespace CameloNinja.Repositorio
 {
     public class RepositorioVendas
     {
-        private const string PATH_ARQUIVO = @"C:\Users\alana.souza\Documents\CrescerCWI\MeuRepositorio\src\modulo-05-dotnet\CameloNinja\CameloNinja\Content\vendas.txt";
+        private const string PATH_ARQUIVO = @"C:\Users\Anny\Documents\CrescerCWI\MeuRepositorio\src\modulo-05-dotnet\CameloNinja\CameloNinja\Content\vendas.txt";
+        private static readonly object objetoLock = new object();
 
         public List<Pedido> ObterPedidos()
         {
-            var linhasArquivo = File.ReadAllLines(PATH_ARQUIVO).ToList();
+            var linhasArquivo = File.ReadAllLines(PATH_ARQUIVO, Encoding.UTF8).ToList();
 
             return ConverteLinhasEmPedidos(linhasArquivo);
         }
@@ -26,17 +27,47 @@ namespace CameloNinja.Repositorio
 
         public void IncluirPedido(Pedido pedido)
         {
-            throw new NotImplementedException();
+            lock (objetoLock)
+            {
+                var utlimoId = this.ObterPedidos().Max(x => x.Id);
+                var idGerado = utlimoId + 1;
+                var novaLinha = ConvertePedidoEmLinhaCSV(pedido, idGerado);
+        
+                File.AppendAllText(PATH_ARQUIVO, novaLinha);
+                pedido.AtualizarId(idGerado);
+            }
+        }
+
+        private string ConvertePedidoEmLinhaCSV(Pedido pedido, int proximoId)
+        {
+            return string.Format(Environment.NewLine + "{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}",
+                                proximoId,
+                                pedido.DataPedido.ToString("dd/MM/yyyy HH:mm"),
+                                pedido.DataEntregaDesejada.ToString("dd/MM/yyyy HH:mm"),
+                                pedido.NomeProduto,
+                                pedido.Valor,
+                                pedido.TipoPagamento,
+                                pedido.NomeCliente,
+                                pedido.Cidade,
+                                pedido.Estado,
+                                pedido.PedidoUrgente);
         }
 
         public void AtualizarPedido(Pedido pedido)
         {
-            throw new NotImplementedException();
+            //TODO: Implementar
         }
 
+        /*stackoverflow.com/questions/668907/how-to-delete-a-line-from-a-text-file-in-c*/
         public void ExcluirPedido(int id)
         {
-            throw new NotImplementedException();
+            var tempFile = Path.GetTempFileName();
+            var linesToKeep = File.ReadAllLines(PATH_ARQUIVO, Encoding.UTF8).Where(linha => linha.Split(';').First() != id.ToString());
+
+            File.WriteAllLines(tempFile, linesToKeep);
+
+            File.Delete(PATH_ARQUIVO);
+            File.Move(tempFile, PATH_ARQUIVO);
         }
 
         private List<Pedido> ConverteLinhasEmPedidos(List<string> linhasArquivo)
