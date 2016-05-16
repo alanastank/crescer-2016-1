@@ -45,6 +45,26 @@ border-radius: 20px;
   margin-top: 0px;
 }
 
+#menu {
+    width: auto;
+    display: inline;
+    position: absolute;
+    top: 25px;
+    left: 340px;
+}
+#menu a {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    color: #333!important;
+    border-radius: 10px;
+}
+
+#menu a:hover {
+    background: #d9dcd9;
+    transition: 1s;
+}
+
 a {
     text-decoration: none!important;
     color: #333!important;
