@@ -53,21 +53,32 @@ namespace CameloNinja.Repositorio
                                 pedido.PedidoUrgente);
         }
 
-        public void AtualizarPedido(Pedido pedido)
+        public void AtualizarPedido(int id)
         {
-            //TODO: Implementar
+           //var linhaEditar = File.ReadAllLines(PATH_ARQUIVO).Where(linha => linha.Split(';').First() == id.ToString());
+           //linhaEditar = IncluirPedido();
+           //File.WriteAllLines(PATH_ARQUIVO, arrLine);
         }
 
         /*stackoverflow.com/questions/668907/how-to-delete-a-line-from-a-text-file-in-c*/
         public void ExcluirPedido(int id)
         {
-            var tempFile = Path.GetTempFileName();
             var linesToKeep = File.ReadAllLines(PATH_ARQUIVO, Encoding.UTF8).Where(linha => linha.Split(';').First() != id.ToString());
+            File.WriteAllLines(PATH_ARQUIVO, linesToKeep);
+        }
 
-            File.WriteAllLines(tempFile, linesToKeep);
+        public List<Pedido> FiltrarPedidosPorClienteEProduto(string cliente, string produto)
+        {
+            var pedidos = this.ObterPedidos();
 
-            File.Delete(PATH_ARQUIVO);
-            File.Move(tempFile, PATH_ARQUIVO);
+            if (!String.IsNullOrWhiteSpace(cliente))
+                pedidos = pedidos.Where(pedido => pedido.NomeCliente.ToLower().Contains(cliente.ToLower())).ToList();
+            if (!String.IsNullOrWhiteSpace(produto))
+                pedidos = pedidos.Where(pedido => pedido.NomeProduto.ToLower().Equals(produto.ToLower())).ToList();
+            if (String.IsNullOrWhiteSpace(cliente) && String.IsNullOrWhiteSpace(produto))
+                return pedidos;
+
+            return pedidos;
         }
 
         private List<Pedido> ConverteLinhasEmPedidos(List<string> linhasArquivo)
