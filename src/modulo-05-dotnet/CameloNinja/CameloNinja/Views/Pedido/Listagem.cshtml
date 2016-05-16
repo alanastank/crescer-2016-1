@@ -4,9 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p>
-    <a href="~/Pedido/Cadastro" class="btn btn-default">Cadastrar novo Pedido</a>
-</p>
+<a href="~/Pedido/Cadastro" class="btn btn-default" style="float: left; margin-bottom: 15px;">Cadastrar novo Pedido</a>
+<form class="navbar-form navbar-left" style="margin-top: -0.5px;" action="~/Pedido/Listagem" method="get">
+    <div class="form-group">
+
+        <input type="text" name="cliente" class="form-control" placeholder="Cliente">
+        <input type="text" name="produto" class="form-control" placeholder="Produto">
+    </div>
+    <button type="submit" class="btn btn-default">Filtrar</button>
+</form>
+
 <table class="table table-bordered table-striped">
     <tr>
         <th></th>
