@@ -57,7 +57,8 @@ namespace CameloNinja.MVC.Controllers
 
         public ActionResult Listagem(string cliente, string produto)
         {
-            var pedidos = repositorio.ObterPedidos();
+
+            var pedidos = repositorio.FiltrarPedidosPorClienteEProduto(cliente, produto);
 
             return View(pedidos);
         }
@@ -69,6 +70,12 @@ namespace CameloNinja.MVC.Controllers
             ViewBag.Mensagem = "Pedido excluído com sucesso!";
 
             return View("Mensagem");
+        }
+
+        public ActionResult EditarPedido(int id)
+        {
+            repositorio.AtualizarPedido(id);
+            return View("Cadastro");
         }
     }
 }
