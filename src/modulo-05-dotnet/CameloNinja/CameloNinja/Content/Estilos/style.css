@@ -3,7 +3,7 @@ html {
 }
 body {
     margin: 0 auto;
-    background: #27272B url('../Imagens/back.png') bottom center no-repeat !important;
+    background: #27272B url('../Imagens/back.png') bottom center no-repeat fixed !important;
     padding: 0 !important;
 }
 
