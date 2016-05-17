@@ -18,7 +18,6 @@ namespace CameloNinja.Repositorio
             using (var conexao = new SqlConnection(connectionString))
             {
                 string sql = "SELECT * FROM Usuario WHERE email=@p_email and senha=@p_senha";
-                Usuario usuario = new Usuario();
 
                 var comando = new SqlCommand(sql, conexao);
                 comando.Parameters.Add(new SqlParameter("p_email", email));
@@ -28,8 +27,11 @@ namespace CameloNinja.Repositorio
 
                 SqlDataReader leitor = comando.ExecuteReader();
 
-                while (leitor.Read())
+                Usuario usuario = null;
+
+                if (leitor.Read())
                 {
+                    usuario = new Usuario();
                     usuario.Email = leitor["email"].ToString();
                     usuario.Senha = leitor["senha"].ToString();
                     usuario.Nome = leitor["nome"].ToString();
