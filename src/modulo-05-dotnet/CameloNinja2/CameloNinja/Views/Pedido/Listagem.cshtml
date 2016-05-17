@@ -1,0 +1,107 @@
+﻿@model IEnumerable<CameloNinja.Dominio.Pedido>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="~/Pedido/Cadastro" class="btn btn-default" style="float: left; margin-bottom: 15px;">Cadastrar novo Pedido</a>
+<form class="navbar-form navbar-left" style="margin-top: -0.5px;" action="~/Pedido/Listagem" method="get">
+    <div class="form-group">
+
+        <input type="text" name="cliente" class="form-control" placeholder="Cliente">
+        <input type="text" name="produto" class="form-control" placeholder="Produto">
+    </div>
+    <button type="submit" class="btn btn-default">Filtrar</button>
+</form>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th></th>
+        <th>
+            Data do Pedido
+        </th>
+        <th>
+            Data Entrega Desejada
+        </th>
+        <th>
+            Produto
+        </th>
+        <th>
+            Valor
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Cidade
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            @if (@item.PedidoUrgente == true)
+            {
+               <button class="btn btn-warning btn-lista" title="Pedido Urgente">
+                    <span class="fa fa-warning"></span>
+               </button>
+            }
+            </td>
+            <td>
+                @item.DataPedido
+            </td>
+            <td>
+                @item.DataEntregaDesejada
+            </td>
+            <td>
+                @item.NomeProduto
+            </td>
+            <td>
+                @{ 
+                    String valorPedido;
+                    if (!@item.Valor.ToString().Contains(","))
+                    {
+                        valorPedido = "R$ " + item.Valor.ToString() + ",00";
+                    }
+                    else
+                    {
+                        valorPedido = "R$ " + item.Valor.ToString();
+                    }
+                } 
+                @valorPedido
+            </td>
+            <td>
+                @item.NomeCliente
+            </td>
+            <td>
+                @item.Cidade
+            </td>
+            <td>
+                @item.Estado
+            </td>
+            <td>
+                <a href="@Url.Action("Editar", "Pedido")/@item.Id" class="btn btn-info btn-lista" title="Editar Pedido">
+                    <span class="fa fa-pencil"></span>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Detalhes", "Pedido")/@item.Id" class="btn btn-warning btn-lista" title="Ver Detalhes do Pedido">
+                    <span class="fa fa-list-alt"></span>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Excluir", "Pedido")/@item.Id" class="btn btn-danger btn-lista" title="Remover Pedido">
+                    <span class="fa fa-remove"></span>
+                </a>
+            </td>
+        </tr>
+    }  
+</table>
+<p><a href="~/Pedido/Cadastro" class="btn btn-default">Cadastrar novo Pedido</a></p>

@@ -1,0 +1,81 @@
+﻿@model CameloNinja.Dominio.Pedido
+@{
+    ViewBag.Title = "Detalhes do Pedido";
+}
+
+<h3>Detalhes do Pedido</h3>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.PedidoUrgente)
+    </dt>
+    @if (@Model.PedidoUrgente)
+    {
+       <dd>Sim</dd>
+    }
+    else 
+    {
+      <dd>Não</dd>
+    }
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.DataPedido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.DataPedido)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.DataEntregaDesejada)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.DataEntregaDesejada)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.NomeProduto)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NomeProduto)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.Valor)
+    </dt>
+    <dd>
+        R$ @Html.DisplayFor(model => model.Valor)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.TipoPagamento)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TipoPagamento)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.NomeCliente)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NomeCliente)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.Cidade)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Cidade)
+    </dd>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.Estado)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Estado)
+    </dd>
+</dl>
+<p>
+    <a href="~/Pedido/Cadastro" class="btn btn-default">Cadastrar novo Pedido</a>
+    <a href="~/Pedido/Listagem" class="btn btn-default">Visualizar todos os pedidos</a>
+</p>
