@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositorioVendas
+namespace CameloNinja.Repositorio
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositorioVendas
+namespace CameloNinja.Repositorio
 {
     public class UsuarioRepositorioADO : IUsuarioRepositorio
     {
@@ -17,7 +17,7 @@ namespace RepositorioVendas
 
             using (var conexao = new SqlConnection(connectionString))
             {
-                string sql = "SELECT * FROM Usuarios WHERE email=@p_email and senha=@p_senha";
+                string sql = "SELECT * FROM Usuario WHERE email=@p_email and senha=@p_senha";
                 Usuario usuario = new Usuario();
 
                 var comando = new SqlCommand(sql, conexao);
