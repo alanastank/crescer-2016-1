@@ -1,0 +1,44 @@
+﻿@model CameloNinja.MVC.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Camelo Ninja";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Entrar", "Login", FormMethod.Post, new { @class = "", role = "login" }))
+{
+    @Html.AntiForgeryToken()
+    <section>
+        <center><img src="~/Content/Imagens/logoCameloNinja.png" alt="logo" style="width: 250px; padding: 10px;"/></center>
+        <div>
+            @Html.ValidationSummary(excludePropertyErrors: false)
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="text-primary fa fa-envelope" style="width: 15px;"></span></div>
+                @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control", placeholder = "Email" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="text-primary fa fa-lock" style="width: 15px;"></span></div>
+                @Html.PasswordFor(m => m.Senha, htmlAttributes: new { @class = "form-control", placeholder = "Senha" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" name="remember" value="1" /> Remember me
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Entrar" class="btn btn-block btn-success" />
+        </div>
+    </section>
+
+        <div>
+            <a href="#">Ainda não é registrado? Registre-se!</a>
+        </div>
+}
+
