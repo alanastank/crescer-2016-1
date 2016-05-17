@@ -2,7 +2,7 @@
 using CameloNinja.MVC.Filters;
 using CameloNinja.MVC.Models;
 using CameloNinja.MVC.Services;
-using RepositorioVendas;
+using CameloNinja.Repositorio;
 using System.Web.Mvc;
 
 namespace CameloNinja.MVC.Controllers
@@ -26,7 +26,7 @@ namespace CameloNinja.MVC.Controllers
                 return View();
             }
 
-            return RedirectToAction("AreaSecreta");
+            return RedirectToAction("DashboardComum");
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace CameloNinja.MVC.Controllers
                 {
                     var usuarioLogadoModel = new UsuarioLogadoModel(usuarioEncontrado);
                     ServicoDeSessao.CriarSessao(usuarioLogadoModel);
-                    return RedirectToAction("AreaSecreta");
+                    return RedirectToAction("DashboardComum");
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace CameloNinja.MVC.Controllers
 
         [HttpGet]
         [CameloNinjaToken]
-        public ActionResult AreaSecreta()
+        public ActionResult DashboardComum()
         {
             UsuarioLogadoModel usuarioLogado = ServicoDeSessao.UsuarioLogado;
             ViewBag.NomeUsuarioLogado = usuarioLogado.Nome;
@@ -65,8 +65,8 @@ namespace CameloNinja.MVC.Controllers
         }
 
         [HttpGet]
-        [CameloNinjaToken(Roles = "GOLD")]
-        public ActionResult AreaSuuuperSecreta()
+        [CameloNinjaToken(Roles = "ADMIN")]
+        public ActionResult DashboardAdmin()
         {
             return View();
         }
