@@ -1,0 +1,20 @@
+body {
+margin: 0 auto;
+padding: 0;
+}
+
+#container {
+width: 91%;
+margin: 30px auto;
+}
+
+#capasAlbuns li,
+#resultados li {
+  display: inline;
+  padding: 2px;
+  list-style: none;
+}
+
+#resultados {
+  margin-top: 100px;
+}
