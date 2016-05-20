@@ -1,44 +1,51 @@
+$(function() {
 'use strict';
 
-var urlApiSpotifyIronMaiden = 'https://api.spotify.com/v1/artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50';
+var base = 'https://api.spotify.com/v1/';
+var $campoBusca = $('#txtArtista');
+var $btnPesquisar = $('#frmBuscaArtista button');
+var $capasAlbuns = $('#capasAlbuns');
 
-$(function() {
-
-$.ajax({ url: urlApiSpotifyIronMaiden, type: 'GET' })
-.done(function (res) {
-  var $capasAlbuns = $('#capasAlbuns');
-  res.items.forEach(function (item) {
-    $capasAlbuns.append(
-      $('<li>').append(
-        $('<img>').attr('src', item.images[1].url)
-      )
-    );
+if($capasAlbuns.length){
+  $.ajax({ url: base + 'artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50', type: 'GET' })
+   .done(function (res) {
+     exibirCapasDosAlbuns($capasAlbuns, res.items);
   });
-});
+};
 
-var $frmBuscaArtista = $('#frmBuscaArtista');
-$frmBuscaArtista.click(function() {
-  var $nomeArtista = $('#txtArtista').val();
-  buscarAlbunsDoArtistaPorNome($nomeArtista, buscarCapasDosAlbuns);
-});
+$btnPesquisar.click(buscarArtista);
+$campoBusca.keypress(buscarArtista);
 
-var buscarAlbunsDoArtistaPorNome = function (nomeArtista, fn) {
+function buscarArtista() {
+  buscarAlbunsDoArtistaPorNome($campoBusca.val(), exibirCapasDosAlbuns);
+};
+
+function buscarAlbunsDoArtistaPorNome(nomeArtista, callback) {
     $.ajax({
-        url: 'https://api.spotify.com/v1/search',
+        url: base + 'search',
         data: {
             q: nomeArtista,
-            type: 'album'
+            type: 'artist'
         },
         success: function (result) {
-            fn(result.albums);
+            buscarAlbunsDoArtistaPorID(result.artists.items[0].id, callback);
         }
     });
 };
 
-var buscarCapasDosAlbuns = function (albuns) {
-    var $resultados = $('#resultados');
-    albuns.items.forEach(function (item) {
-        $resultados.append(
+function buscarAlbunsDoArtistaPorID(id, callback) {
+    $.ajax({
+        url: base + 'artists/' + id + '/albums',
+        success: function (result) {
+            callback($('#resultados'), result.items);
+        }
+    });
+};
+
+function exibirCapasDosAlbuns(div, albuns) {
+    div.html('');
+    albuns.forEach(function (item) {
+        div.append(
           $('<li>').append(
             $('<img>').attr('src', item.images[1].url)
           )
