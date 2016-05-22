@@ -102,6 +102,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom\principal.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\bg %281%29.jpg" />
+    <Content Include="Content\Images\bg %282%29.jpg" />
+    <Content Include="Content\Images\bg %283%29.jpg" />
+    <Content Include="Content\Images\bg.jpg" />
+    <Content Include="Content\login-form.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -112,6 +119,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Components\FeedbackToast.js" />
     <Content Include="Scripts\Custom\overrides-validacao.js" />
@@ -126,6 +138,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Models\Cavaleiros.js" />
+    <Content Include="Scripts\Views\CadastroDeCavaleiros.js" />
     <Content Include="Scripts\Views\CavaleiroIndexView.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -166,6 +179,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Usuario\Cadastrar.cshtml" />
     <Content Include="Views\Cavaleiro\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

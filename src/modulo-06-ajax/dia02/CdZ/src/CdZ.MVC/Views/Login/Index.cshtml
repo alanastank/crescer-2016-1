@@ -1,29 +1,39 @@
 ﻿@model CdZ.MVC.Models.Login.LoginViewModel
 @{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<h2>Login</h2>
+    @using (Html.BeginForm("Entrar", "Login", FormMethod.Post, new { @class = "", role = "login" }))
+    {
+        @Html.AntiForgeryToken();
 
-<div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-        @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken();
-
-            <div>
-                @Html.ValidationSummary()
+        <div>
+            @Html.ValidationSummary()
+        </div>
+        <section>
+            <center><img src="http://vignette2.wikia.nocookie.net/saintseya/images/a/a3/Cavaleiros-do-zodiaco.png/revision/latest?cb=20140714182808&path-prefix=pt" alt="logo" style="margin-top: -25px; width: 200px; padding: 15px 10px;" /></center>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="text-primary fa fa-envelope" style="width: 15px;"></span></div>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "email", placeholder = "Email" })
+                </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email, new { @class="form-control", @type="email" })
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="text-primary fa fa-lock" style="width: 15px;"></span></div>
+                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control", placeholder = "Senha" })
+                </div>
             </div>
+
             <div class="form-group">
-                @Html.LabelFor(m => m.Senha)
-                @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                <input type="submit" value="Entrar" class="btn btn-block btn-success" name="entrar" />
             </div>
-            <input class="btn btn-primary" type="submit" name="entrar" value="Entrar" />
-        }
-    </div>
-</div>
+        </section>
+
+        <div>
+            <a href="#">Ainda não é registrado? Registre-se!</a>
+        </div>
+
+    }

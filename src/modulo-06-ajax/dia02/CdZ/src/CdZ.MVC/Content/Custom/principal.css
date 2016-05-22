@@ -1,5 +1,21 @@
-﻿.container {
+﻿body {
+    background-image: url('../Images/bg.jpg');
+}
+
+#main {
     padding: 25px;
+}
+
+.box {
+   background: #fff;
+   margin: 20px auto;
+   text-align: left;
+   padding: 10px 30px;
+   border-radius: 20px;
+}
+
+.box h2 {
+  margin-bottom: -10px;
 }
 
 .site-title {
@@ -10,9 +26,28 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.5) url(http://im2.ezgif.com/tmp/ezgif-3223200862.gif) center center no-repeat;
+    background: rgba(0,0,0,.5) url(https://www.mygreatlakes.org/mglstatic/educate/images/loading.gif) center center no-repeat;
 }
 
 .erro {
     color: red;
+}
+
+.navbar-default .navbar-nav > li > p {
+    display: block;
+    position: relative;
+    margin-top: 15px;
+    padding: 0px 15px;
+}
+
+.navbar {
+    border-radius: 0!important;
+    border: none;
+}
+
+#novosGolpes li,
+#novasImagens li {
+    list-style: none;
+    padding-top: 5px;
+    width: 100%;
 }
