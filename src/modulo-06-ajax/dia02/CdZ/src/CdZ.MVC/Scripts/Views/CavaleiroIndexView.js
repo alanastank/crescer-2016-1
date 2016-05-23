@@ -48,8 +48,10 @@ CavaleiroIndexView.prototype.render = function () {
 };
 
 CavaleiroIndexView.prototype.criarHtmlCavaleiro = function (cava) {
+    var $img = $('<img>').attr('src', obterThumb(cava).url);
     return $('<li>')
         .append(cava.Nome)
+        .append($img)
         .append(
             $('<button>').addClass('btn btn-default')
                 .on('click', { id: cava.Id, self: this }, this.editarCavaleiroNoServidor)
@@ -60,6 +62,12 @@ CavaleiroIndexView.prototype.criarHtmlCavaleiro = function (cava) {
                 .on('click', { id: cava.Id, self: this }, this.excluirCavaleiroNoServidor)
                 .text('Excluir')
         );
+};
+
+function obterThumb(cava) {
+   return cava.imagens.filter(function (i) {
+        return i.isThumb;
+   })[0];
 };
 
 CavaleiroIndexView.prototype.excluirCavaleiroNoServidor = function (e) {
