@@ -16,8 +16,8 @@
     </div>
 </div>
 
-<form id="frmNovoCavaleiro" method="POST" >
-
+@using (Html.BeginForm("Post", "Cavaleiro", FormMethod.Post, new { id = "frmNovoCavaleiro" }))
+{
     <div class="row">
         <div class="col-xs-4 form-group">
             <!-- nome -->
@@ -92,12 +92,12 @@
             <ul id="novasImagens"></ul>
         </div>
         <div class="col-xs-12 form-group">
-            <button type="submit" id="" class="btn btn-primary">Cadastrar!</button>
+            <button type="submit" id="btnCriar" class="btn btn-primary">Cadastrar!</button>
         </div>
     </div>
-</form>
-<hr>
-<button id="btnCriar" class="btn btn-primary">Criar fake!</button>
+}
+<h2>Listagem de cavaleiros</h2> 
+<hr />
 <div id="detalhes-cavaleiro"></div>
 <ul id="cavaleiros"></ul>
 
