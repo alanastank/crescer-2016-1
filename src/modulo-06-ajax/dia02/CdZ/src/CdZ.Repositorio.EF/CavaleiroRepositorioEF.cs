@@ -41,12 +41,15 @@ namespace CdZ.Repositorio.EF
             }
         }
 
-        public IEnumerable<Cavaleiro> Todos()
+        public IEnumerable<Cavaleiro> Todos(int paginaAtual)
         {
             using (var db = new ContextoDeDados())
             {
-                //TODO: paginar
-                return db.Cavaleiro.Include("Imagens").OrderBy(x => x.Nome).ToList();
+            //http://stackoverflow.com/questions/2380413/paging-with-linq-for-objects
+                int numeroDeCavaleirosPorPagina = 5;
+                return db.Cavaleiro.Include("Imagens").OrderBy(x => x.Nome).ToList()
+                    .Skip(numeroDeCavaleirosPorPagina * paginaAtual)
+                    .Take(numeroDeCavaleirosPorPagina); ;
             }
         }
 
