@@ -140,6 +140,7 @@
     <Content Include="Scripts\Models\Cavaleiros.js" />
     <Content Include="Scripts\Views\CadastroDeCavaleiros.js" />
     <Content Include="Scripts\Views\CavaleiroIndexView.js" />
+    <Content Include="Scripts\Views\EdicaoDeCavaleiros.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,7 @@
     <Compile Include="Controllers\CavaleiroController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="CustomModelBinder\DoubleModelBinder.cs" />
     <Compile Include="Extensions\CavaleiroExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\GolpeExtensions.cs" />
