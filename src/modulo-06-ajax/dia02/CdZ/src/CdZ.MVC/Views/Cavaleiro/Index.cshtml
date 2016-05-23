@@ -126,22 +126,4 @@
             urlCavaleiroPut: '@Url.Action("Put")',
         }).render();
     </script>
-
-
-    <script>
-        setInterval(function () {
-            var cavaleirosExibidos = $("#cavaleiros li").length;
-            $.ajax({ url: urlCavaleiroGet, type: 'GET' }).done(function (res) {
-                var cavaleiros = res.data;
-                var numeroNovosCavaleiros = 0;
-                if (cavaleirosExibidos < cavaleiros.length) {
-                    for (var i = cavaleirosExibidos; i < cavaleiros.length; i++) {
-                        numeroNovosCavaleiros++;
-                        $('#cavaleiros').append(CavaleiroIndexView.prototype.criarHtmlCavaleiro(cavaleiros[i]));
-                    }
-                    notificarNovosCavaleiros(numeroNovosCavaleiros);
-                }
-            });
-        }, 5000);
-    </script>
 }

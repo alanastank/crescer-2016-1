@@ -1,5 +1,8 @@
 ﻿'use strict';
 
+var maiorIdCavaleiroExibido = 0;
+
+
 function CavaleiroIndexView(options) {
     options = options || {};
     this.errorToast = options.errorToast;
@@ -39,6 +42,9 @@ CavaleiroIndexView.prototype.render = function () {
                     self.cavaleirosUi.append(
                         self.criarHtmlCavaleiro(cava)
                     );
+                    if (cava.Id > maiorIdCavaleiroExibido) {
+                        maiorIdCavaleiroExibido = cava.Id;
+                    }
                 });
             },
             function onError(res) {
@@ -47,11 +53,26 @@ CavaleiroIndexView.prototype.render = function () {
         );
 };
 
+setInterval(function () {
+    $.get('/Cavaleiro/Get')
+        .done(function onSuccess(res) {
+            var qtdNovos = 0;
+            res.data.forEach(function (cava) {
+                if (cava.Id > maiorIdCavaleiroExibido) {
+                    $('#cavaleiros').append(CavaleiroIndexView.prototype.criarHtmlCavaleiro(cava));
+                    maiorIdCavaleiroExibido = cava.Id;
+                    qtdNovos++;
+                }
+            })
+            if (qtdNovos != 0) { notificarNovosCavaleiros(qtdNovos); }
+        });
+}, 5000);
+
 CavaleiroIndexView.prototype.criarHtmlCavaleiro = function (cava) {
-    var $img = $('<img>').attr('src', obterThumb(cava).url);
+    var $img = $('<img>').attr('src', obterThumb(cava));
     return $('<li>')
-        .append(cava.Nome)
-        .append($img)
+        .append($img).append('<br>')
+        .append(cava.Nome).append('<br>')
         .append(
             $('<button>').addClass('btn btn-default')
                 .on('click', { id: cava.Id, self: this }, this.editarCavaleiroNoServidor)
@@ -65,9 +86,10 @@ CavaleiroIndexView.prototype.criarHtmlCavaleiro = function (cava) {
 };
 
 function obterThumb(cava) {
-   return cava.imagens.filter(function (i) {
-        return i.isThumb;
+   var imagemThumb = cava.Imagens.filter(function (i) {
+        return i.IsThumb;
    })[0];
+   return imagemThumb.Url;
 };
 
 CavaleiroIndexView.prototype.excluirCavaleiroNoServidor = function (e) {
@@ -76,6 +98,7 @@ CavaleiroIndexView.prototype.excluirCavaleiroNoServidor = function (e) {
         .done(function (res) {
             self.successToast.show('Excluído com sucesso!');
         });
+    $(this).parent('li').remove();
 };
 
 CavaleiroIndexView.prototype.editarCavaleiroNoServidor = function (e) {
