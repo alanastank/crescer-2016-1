@@ -53,3 +53,18 @@
     padding-top: 5px;
     width: 100%;
 }
+
+#cavaleiros li {
+    list-style-type: none;
+    margin: 15px 0px;
+    text-align: center;
+}
+
+#cavaleiros > li > img {
+    height: 150px;
+     display: inline;
+} 
+
+#cavaleiros button {
+    margin: 5px;
+}
