@@ -30,24 +30,23 @@ DBMS_OUTPUT.PUT_LINE('Média dos valores dos pedidos: ' || vMediaValorPedidos);
 end;
 
 -- Exercicio 2
-Create sequence cidade_sequence start with 4668 increment by 1 nomaxvalue; 
 
 declare
 
-vNomeCidade CIDADE.NOME%Type;
-vUFCidade CIDADE.UF%Type;
+vNomeCidade CIDADE.NOME%Type := '&p_NomeCidade';
+vUFCidade CIDADE.UF%Type := '&p_UFCidade';
 vCidadeExiste int;
 
 begin
 
-Select Count(IdCidade), Nome, UF into vCidadeExiste, vNomeCidade, vUFCidade from Cidade 
-where Nome = '&p_NomeCidade' and UF = '&p_UFCidade' group by Nome, UF;
+Select Count(IdCidade) into vCidadeExiste from Cidade 
+where lower(Nome) = lower(vNomeCidade) and lower(UF) = lower(vUFCidade);
 
 if(vCidadeExiste = 0) then
-insert into Cidade(IdCidade, Nome, UF) values (cidade_sequence.nextVal, vNomeCidade, vUFCidade);
+insert into Cidade(Nome, UF) values (vNomeCidade, vUFCidade);
+DBMS_OUTPUT.PUT_LINE('Cidade cadastrada com sucesso!');
 else
-DBMS_OUTPUT.PUT_LINE('Existe: ' || vCidadeExiste);
-DBMS_OUTPUT.PUT_LINE('Cidade: ' || vNomeCidade);
-DBMS_OUTPUT.PUT_LINE('UF: ' || vUFCidade);
+DBMS_OUTPUT.PUT_LINE('Já existe uma cidade com esse nome cadastrada!');
 end if;
+
 end;
