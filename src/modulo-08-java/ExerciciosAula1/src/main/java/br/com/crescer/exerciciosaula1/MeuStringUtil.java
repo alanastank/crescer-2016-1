@@ -1,36 +1,33 @@
-package br.com.crescer.exerciciosaula1;
+﻿package br.com.crescer.exerciciosaula1;
 
 import java.util.Scanner;
 
 public class MeuStringUtil {
 
-//Deve possuir um metodo que identifique um palíndromo.("ovo", "Ame a ema", "A sogra má e amargosa")
-    public static void validarString(String palavra) {
-        System.out.println(palavra.isEmpty() == true ? "A palavra é vazia" : "A palavra não é vazia");
+    public static boolean validarString(String palavra) {
+        if (palavra == null) return true;
+        return palavra.trim().length() == 0;
     }
 
-    public static void contarVogais(String palavra) {
+    public static int contarVogais(String palavra) {
         int contadorVogais = 0;
-        String[] letrasDaPalavra = palavra.split("");
+        String[] letrasDaPalavra = palavra.toLowerCase().split("");
         for (String letra : letrasDaPalavra) {
-            if (letra.equalsIgnoreCase("a")) contadorVogais++;
-            if (letra.equalsIgnoreCase("e")) contadorVogais++;
-            if (letra.equalsIgnoreCase("i")) contadorVogais++;
-            if (letra.equalsIgnoreCase("o")) contadorVogais++;
-            if (letra.equalsIgnoreCase("u")) contadorVogais++;
+            if (letra.equalsIgnoreCase("a") || letra.equalsIgnoreCase("e") || letra.equalsIgnoreCase("i") || letra.equalsIgnoreCase("o") || letra.equalsIgnoreCase("u")){
+                contadorVogais++;
+            }
         }
-        System.out.println("A palavra possui " + contadorVogais + " vogais.");
+        return contadorVogais;
     }
 
     private static String inverterString(String palavra) {
-        // TODO: arrumar para frase
-        return new StringBuilder(palavra).reverse().toString().toLowerCase();
+        return new StringBuilder(palavra.toLowerCase()).reverse().toString();
     }
 
-    private static void verificarSeEhPalindromo(String palavra) {
+    private static boolean verificarSeEhPalindromo(String palavra) {
          // TODO: arrumar para frase
         String palavraInversa = inverterString(palavra);
-        System.out.println(palavraInversa.equalsIgnoreCase(palavra) ? "A palavra é um palíndromo." : "A palavra não é um palíndromo.");
+        return palavraInversa.toLowerCase().equalsIgnoreCase(palavra);
     }
 
     public static void main(String[] args) {
@@ -47,10 +44,10 @@ public class MeuStringUtil {
                 System.out.println("Digite uma palavra");
                 String palavra = teclado.next();
                 
-                if (opcao == 1) validarString(palavra);
-                if (opcao == 2) contarVogais(palavra);
+                if (opcao == 1) System.out.println(validarString(palavra) ? "A palavra é vazia" : "A palavra não é vazia");
+                if (opcao == 2) System.out.println("A palavra possui " + contarVogais(palavra) + " vogais.");
                 if (opcao == 3) System.out.println("A palavra invertida é: " + inverterString(palavra));
-                if (opcao == 4) verificarSeEhPalindromo(palavra);
+                if (opcao == 4) System.out.println(verificarSeEhPalindromo(palavra) ? "A palavra é um palíndromo." : "A palavra não é um palíndromo.");
                 
                 System.out.println("\nDeseja fazer outra operação? 1 - Sim 2- Não");
                 continuar = teclado.nextInt();
