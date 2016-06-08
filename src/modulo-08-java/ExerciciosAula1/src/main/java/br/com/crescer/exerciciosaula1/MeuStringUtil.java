@@ -1,4 +1,4 @@
-﻿package br.com.crescer.exerciciosaula1;
+package br.com.crescer.exerciciosaula1;
 
 import java.util.Scanner;
 
@@ -10,6 +10,7 @@ public class MeuStringUtil {
     }
 
     public static int contarVogais(String palavra) {
+        if (palavra == null) return 0;
         int contadorVogais = 0;
         String[] letrasDaPalavra = palavra.toLowerCase().split("");
         for (String letra : letrasDaPalavra) {
@@ -20,11 +21,13 @@ public class MeuStringUtil {
         return contadorVogais;
     }
 
-    private static String inverterString(String palavra) {
+    public static String inverterString(String palavra) {
+        if (palavra == null) return "";
         return new StringBuilder(palavra.toLowerCase()).reverse().toString();
     }
 
-    private static boolean verificarSeEhPalindromo(String palavra) {
+    public static boolean verificarSeEhPalindromo(String palavra) {
+        if (palavra == null || palavra == "") return false;
          // TODO: arrumar para frase
         String palavraInversa = inverterString(palavra);
         return palavraInversa.toLowerCase().equalsIgnoreCase(palavra);
