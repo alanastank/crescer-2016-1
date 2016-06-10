@@ -43,6 +43,7 @@ public class MeuSQLUtils {
         try (final Connection connection = ConnectionUtils.getConnection()) {
             try (final Statement statement = connection.createStatement()) {
                 try (final ResultSet resultSet = statement.executeQuery(query)) {
+                    System.out.println("Comando executado com sucesso.");
                     resultSet.close();
                 } catch (final SQLException e) {
                     System.err.format("SQLException: %s", e);
@@ -56,19 +57,21 @@ public class MeuSQLUtils {
     }
 
     public void executarQueryEMostrarColunasELinhasSeForSelect(String query) {
-        query = query.toLowerCase();
-        if (query.matches("^select\\s")) {
+        if (query.toLowerCase().matches("^select\\s.*$")) {
             try (final Connection connection = ConnectionUtils.getConnection()) {
                 try (final Statement statement = connection.createStatement()) {
                     try (final ResultSet resultSet = statement.executeQuery(query)) {
                         ResultSetMetaData rsmd = resultSet.getMetaData();
                         int numColunas = rsmd.getColumnCount();
-                        for (int i = 0; i < numColunas; i++) {
+                        for (int i = 1; i <= numColunas; i++) {
                             System.out.print(rsmd.getColumnName(i) + "\t");
                         }
                         System.out.println("\n");
                         while (resultSet.next()) {
-                            System.out.println(resultSet.getLong("ID_PESSOA") + "\t" + resultSet.getString("NM_PESSOA"));
+                            for (int i = 1; i <= numColunas; i++) {
+                                System.out.print(resultSet.getString(i) + "\t\t");
+                            }
+                            System.out.println("\n");
                         }
                         resultSet.close();
                     } catch (final SQLException e) {

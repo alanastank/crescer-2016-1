@@ -12,12 +12,14 @@ public class Run {
         switch (opcao) {
             case 1:
                 System.out.println("Digite o endereço do arquivo sql:");
-                String arquivo = teclado.next();
+                teclado.nextLine();
+                String arquivo = teclado.nextLine();
                 sqlUtils.lerArquivoSQLEExecutar(arquivo);
                 break;
             case 2:
                 System.out.println("Digite uma query pra ser executada:");
-                String query = teclado.next();
+                teclado.nextLine();
+                String query = teclado.nextLine();
                 sqlUtils.executarQueryEMostrarColunasELinhasSeForSelect(query);
                 break;
         }
