@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -85,6 +86,40 @@ public class MeuSQLUtils {
             }
         } else {
             executarQuery(query);
+        }
+    }
+
+    public void importarCSV(String arquivo) {
+        if (new File(arquivo).exists()) {
+            try {
+                final Reader reader = new FileReader(arquivo);
+                final BufferedReader bufferedReader = new BufferedReader(reader);
+                String line = null;
+                String INSERT = "INSERT INTO PESSOA (IdPessoa, NomePessoa) VALUES (?,?)";
+                while (true) {
+                    line = bufferedReader.readLine();
+                    if (line != null) {
+                        String[] partes = line.split(";");
+                        try (final Connection connection = ConnectionUtils.getConnection();
+                                final PreparedStatement prepareStatement = connection.prepareStatement(INSERT)) {
+                            prepareStatement.setString(1, partes[0]);
+                            prepareStatement.setString(2, partes[1]);
+                            prepareStatement.executeUpdate();
+                        } catch (final SQLException e) {
+                            System.err.format("SQLException: %s", e);
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (!arquivo.matches(
+                "^.*\\.(csv|CSV)$")) {
+            System.err.println("Esse arquivo não pode ser executado pois não possui extensão .csv");
+        } else {
+            System.err.println("O arquivo não existe.");
         }
     }
 }
