@@ -14,10 +14,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@Table(name = "USUARIO")
 public class Usuario implements Serializable {
 
-    @OneToMany(mappedBy = "Usuario", targetEntity = Publicacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario")
     private List<Publicacao> publicacoes;
+    
+    @OneToMany(mappedBy="usuario")
+    private List<Amigo> amigos;
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_USUARIO")

@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name = "PUBLICACAO")
 public class Publicacao implements Serializable {
 
     @ManyToOne
@@ -30,7 +31,7 @@ public class Publicacao implements Serializable {
 
     @Basic(optional = false)
     @Temporal(TemporalType.TIME)
-    @Column(name = "DATA_PUBLICACAO")
+    @Column(name = "DATAHORA_PUBLICACAO")
     public Date dataPublicacao;
 
     @Basic(optional = false)
