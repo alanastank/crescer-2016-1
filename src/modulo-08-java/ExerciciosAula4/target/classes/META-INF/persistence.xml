@@ -2,6 +2,11 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence">
     <persistence-unit name="CRESCER16" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>br.com.crescer.exerciciosaula4.POJOS.Cidade</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.Cliente</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.Material</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.Pedido</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.Produto</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
             <property name="javax.persistence.jdbc.user" value="CRESCER16"/>
