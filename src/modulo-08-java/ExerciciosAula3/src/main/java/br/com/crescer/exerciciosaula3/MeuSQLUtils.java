@@ -112,6 +112,7 @@ public class MeuSQLUtils {
                         break;
                     }
                 }
+                System.out.println("Arquivo importado e executado com sucesso.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
