@@ -45,7 +45,8 @@ public class MeuStringUtil {
                 int opcao = teclado.nextInt();
                 
                 System.out.println("Digite uma palavra");
-                String palavra = teclado.next();
+                teclado.nextLine();
+                String palavra = teclado.nextLine();
                 
                 if (opcao == 1) System.out.println(validarString(palavra) ? "A palavra é vazia" : "A palavra não é vazia");
                 if (opcao == 2) System.out.println("A palavra possui " + contarVogais(palavra) + " vogais.");
