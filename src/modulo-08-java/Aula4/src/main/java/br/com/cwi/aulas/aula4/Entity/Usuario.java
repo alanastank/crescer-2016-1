@@ -12,6 +12,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "USUARIO")
@@ -21,7 +22,7 @@ public class Usuario implements Serializable {
     private List<Publicacao> publicacoes;
     
     @OneToMany(mappedBy="usuario")
-    private List<Amigo> amigos;
+    private List<Amigos> amigos;
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_USUARIO")
