@@ -3,9 +3,7 @@ package br.com.crescer.exerciciosaula4.DAO;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class GenericDAO<PK, Table> {
 
@@ -23,21 +21,15 @@ public class GenericDAO<PK, Table> {
     }
 
     public void insert(Table entity) {
-        transaction.begin();
         em.persist(entity);
-        transaction.commit();
     }
 
     public void update(Table entity) {
-        transaction.begin();
         em.merge(entity);
-        transaction.commit();
     }
 
     public void delete(Table entity) {
-        transaction.begin();
         em.remove(entity);
-        transaction.commit();
     }
 
     //http://www.devmedia.com.br/crud-completo-com-hibernate-e-jpa/32711
