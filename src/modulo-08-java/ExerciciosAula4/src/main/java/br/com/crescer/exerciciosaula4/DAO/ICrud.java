@@ -1,15 +1,14 @@
 package br.com.crescer.exerciciosaula4.DAO;
 
 import java.util.List;
-import javax.persistence.Table;
 
-public interface ICrud {
+public interface ICrud<PK, Table> {
 
-    public void insert();
+    public void insert(Table entity);
 
-    public void update();
+    public void update(Table entity);
 
-    public void delete();
+    public void delete(Table entity);
 
     public List<Table> listAll();
 
