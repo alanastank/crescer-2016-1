@@ -1,7 +1,7 @@
 package br.com.crescer.exerciciosaula4.POJOS;
 
 import java.io.Serializable;
-import javafx.scene.chart.PieChart.Data;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +31,7 @@ public class Produto implements Serializable {
     @Basic(optional = false)
     @Column(name = "DATACADASTRO")
     @Temporal(TemporalType.DATE)
-    private Data dataCadastro;
+    private Date dataCadastro;
 
     @Basic(optional = false)
     @Column(name = "PRECOCUSTO", scale = 2, precision = 12)
@@ -61,11 +61,11 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
-    public Data getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Data dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
@@ -93,7 +93,7 @@ public class Produto implements Serializable {
         this.situacao = situacao;
     }
 
-    public Produto(String nome, Data dataCadastro, Double precoCusto, Double precoVenda, String situacao) {
+    public Produto(String nome, Date dataCadastro, Double precoCusto, Double precoVenda, String situacao) {
         this.nome = nome;
         this.dataCadastro = dataCadastro;
         this.precoCusto = precoCusto;
