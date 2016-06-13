@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class GenericDAO<PK, Table> {
+public class GenericDAO<PK, Table> implements ICrud<PK, Table>{
 
     EntityManager em;
     EntityTransaction transaction;
@@ -20,19 +20,23 @@ public class GenericDAO<PK, Table> {
         return (Table) em.find(getTypeClass(), pk);
     }
 
+    @Override
     public void insert(Table entity) {
         em.persist(entity);
     }
 
+    @Override
     public void update(Table entity) {
         em.merge(entity);
     }
 
+    @Override
     public void delete(Table entity) {
         em.remove(entity);
     }
 
     //http://www.devmedia.com.br/crud-completo-com-hibernate-e-jpa/32711
+    @Override
     public List<Table> listAll() {
         return em.createQuery(String.format("SELECT T FROM %p t", getTypeClass())).getResultList();
     }
