@@ -6,13 +6,15 @@
         <class>br.com.crescer.exerciciosaula4.POJOS.Cliente</class>
         <class>br.com.crescer.exerciciosaula4.POJOS.Material</class>
         <class>br.com.crescer.exerciciosaula4.POJOS.Pedido</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.PedidoItem</class>
         <class>br.com.crescer.exerciciosaula4.POJOS.Produto</class>
+        <class>br.com.crescer.exerciciosaula4.POJOS.ProdutoMaterial</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
             <property name="javax.persistence.jdbc.user" value="CRESCER16"/>
             <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
             <property name="javax.persistence.jdbc.password" value="CRESCER16"/>
-            <property name="javax.persistence.schema-generation.database.action" value="update"/>`
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="hibernate.show_sql" value = "true"/>
             <property name="hibernate.format_sql" value = "true"/>        
         </properties>
