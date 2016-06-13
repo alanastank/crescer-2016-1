@@ -26,11 +26,11 @@ public class Material implements Serializable {
     private String descricao;
 
     @Basic(optional = false)
-    @Column(name = "PESOLIQUIDO")
+    @Column(name = "PESOLIQUIDO", scale = 5, precision = 15)
     private Double pesoLiquido;
 
     @Basic(optional = false)
-    @Column(name = "PRECOCUSTO")
+    @Column(name = "PRECOCUSTO", scale = 2, precision = 12)
     private Double precoCusto;
 
     public long getId() {

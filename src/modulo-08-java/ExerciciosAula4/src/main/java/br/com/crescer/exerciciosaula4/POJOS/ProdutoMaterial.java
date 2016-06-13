@@ -33,7 +33,7 @@ public class ProdutoMaterial implements Serializable {
     private Material material;
 
     @Basic(optional = false)
-    @Column(name = "QUANTIDADE")
+    @Column(name = "QUANTIDADE", scale = 3, precision = 12)
     private int quantidade;
 
     public Long getId() {

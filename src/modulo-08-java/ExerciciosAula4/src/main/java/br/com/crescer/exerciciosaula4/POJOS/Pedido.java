@@ -40,7 +40,7 @@ public class Pedido implements Serializable {
     private Date dataEntrega;
 
     @Basic(optional = false)
-    @Column(name = "VALORPEDIDO")
+    @Column(name = "VALORPEDIDO", scale = 2, precision = 12)
     private Double valorPedido;
 
     @Basic(optional = false)

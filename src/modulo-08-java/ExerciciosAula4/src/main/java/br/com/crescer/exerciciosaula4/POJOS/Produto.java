@@ -34,11 +34,11 @@ public class Produto implements Serializable {
     private Data dataCadastro;
 
     @Basic(optional = false)
-    @Column(name = "PRECOCUSTO")
+    @Column(name = "PRECOCUSTO", scale = 2, precision = 12)
     private Double precoCusto;
 
     @Basic(optional = false)
-    @Column(name = "PRECOVENDA")
+    @Column(name = "PRECOVENDA", scale = 2, precision = 12)
     private Double precoVenda;
 
     @Basic(optional = false)

@@ -33,11 +33,11 @@ public class PedidoItem implements Serializable {
     private Produto produto;
 
     @Basic(optional = false)
-    @Column(name = "QUANTIDADE")
+    @Column(name = "QUANTIDADE", scale = 3, precision = 12)
     private int quantidade;
 
     @Basic(optional = false)
-    @Column(name = "PRECOUNITARIO")
+    @Column(name = "PRECOUNITARIO", scale = 2, precision = 12)
     private Double precoUnitario;
 
     @Basic(optional = false)
